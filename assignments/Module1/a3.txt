@@ -1,0 +1,72 @@
+(A) Write the full form and one-line use of: HTTP, HTTPS, FTP, SMTP.
+
+HTTP :-
+Hypertext Transfer Protocol
+Used to transfer web pages between a browser and a server.
+
+HTTPS :-
+Hypertext Transfer Protocol Secure	
+Used to securely transfer web pages using encryption.
+
+FTP :-
+File Transfer Protocol
+Used to transfer files between computers over a network.
+
+SMTP :-
+Simple Mail Transfer Protocol	
+Used to send emails over the Internet.
+
+
+(B) What is the difference between IPv4 and IPv6? Answer in 2 lines
+
+IPv4 :- uses 32-bit addresses (e.g., 192.168.1.1) and supports about 4.3 billion unique addresses.
+IPv6  :- uses 128-bit addresses (e.g., 2001:db8::1) and supports a vastly larger number of unique addresses.
+
+
+(C) Run nslookup google.com on your system and write down the IP address you get.
+
+ IP address :- 142.250.146.100
+
+
+(D) What do these HTTP status codes mean: 200, 301, 404, 500, 403?
+
+Status Code	Meaning
+200	        OK – The request was successful.
+301	        Moved Permanently – The page has been redirected to a new URL.
+404	       Not Found – The requested page does not exist.
+500	       Internal Server Error – The server encountered an unexpected error.
+403	       Forbidden – Access to the requested resource is denied.
+
+
+(E) Explain DNS hierarchy (root, TLD, domain, subdomain) with www.google.com as an example.
+
+DNS (Domain Name System) works like the Internet's phonebook. When you type www.google.com in your browser, DNS helps find the IP address of Google's server.
+
+            Root (.)
+               │
+            com
+               │
+           google
+               │
+             www
+1. Root Domain (.)
+It is represented by a dot (.) but is usually hidden.
+It directs requests to the correct Top-Level Domain (TLD) server.
+Example: www.google.com. (the final dot represents the root)
+
+2. TLD (Top-Level Domain)
+It indicates the category or type of domain.
+Example: com
+In www.google.com, com is the TLD.
+
+3. Domain 
+This is the main registered name owned by a person or company.
+Example: google
+In www.google.com, google is the domain name owned by Google.
+
+4. Subdomain
+A subdomain is a subdivision of the main domain.
+It is used to organize different services or sections of a website.
+Example: www
+In www.google.com, www is the subdomain.
+

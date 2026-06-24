@@ -1,0 +1,9 @@
+(A) List all 6 phases of SDLC in order with one line about each.
+
+1. Requirement Analysis:- Gather and analyze the customer's needs and project requirements.       
+2. System Design :- Create the architecture, database, and overall system design.           
+3. Development (Coding):- Developers write the source code according to the design.              
+4. Testing :- The software is tested to find and fix defects or errors.              
+5. Deployment :-  The completed software is released for users to use.                    
+6. Maintenance :- The software is updated, improved, and bugs are fixed after deployment.
+

@@ -1,0 +1,30 @@
+(A) What are the three main layers of software architecture? Write one line about each.
+
+Presentation Layer (UI):- Handles user interaction and displays information to users.
+Database Layer  :- Stores, retrieves, and manages application data.
+
+(B) Define client and server in your own words with one real-life example.
+
+Client: A device or application that requests information or services.
+Server: A computer or system that provides information or services to clients.
+Example: When you open YouTube on your phone, your phone is the client and YouTube's computers are the servers that send videos to your device.
+
+(C) Write 2 differences each between desktop apps, web apps, and mobile apps.
+
+(i)Installation :-
+	Must be installed on a computer	
+        Runs in a web browser	
+        Installed from an app store
+(ii)Device :-
+	Works mainly on PCs/laptops	
+        Works on any device with a browser	
+        Designed for smartphones and tablets
+
+Examples: Desktop App: Microsoft Word
+          Web App: Google Docs
+          Mobile App: WhatsApp
+
+(D) Name any 3 databases and mention whether each is SQL or NoSQL.
+  MySQL	        SQL
+ PostgreSQL	SQL
+ MongoDB	NoSQL

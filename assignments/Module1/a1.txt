@@ -1,0 +1,63 @@
+(A) Name 5 IT job roles and write one line about what each role does.
+
+1)  Software Developer - Creates and maintains software applications.
+2)  Web Developer - Designs and develops websites and web applications.
+3)  Software Tester (QA) - Tests software to find and report bugs.
+4)  Database Administrator (DBA) - Manages and secures databases.
+5)  System Administrator - Maintains computer systems, servers, and networks.
+
+
+(B) List 3 product companies and 3 service companies with one example of work each does.
+
+Product Companies
+
+Company	        Example of Work
+Microsoft	Develops the Windows operating system.
+Google	        Develops Android and Google Search.
+Adobe	        Creates Photoshop and other creative software.
+
+Service Companies
+
+Company	                      Example of Work
+Tata Consultancy Services     Provides software development services to clients.
+Infosys	                      Offers consulting and IT solutions.
+Wipro	                      Provides software testing and support services.
+
+
+(c) Write the full forms and one-line use of: GitHub, Slack, Jira, IDE, API.
+
+GitHub :-
+Git + Hub (Git repository hosting platform)
+Used for storing and managing code projects.
+
+Slack :-
+Searchable Log of All Communication and Knowledge
+Used for team communication and collaboration.
+
+Jira
+Product name by Atlassian
+Used for project and issue tracking.
+
+IDE
+Integrated Development Environment
+Used for writing, testing, and debugging code.
+
+API	
+Application Programming Interface	
+Allows different software applications to communicate with each other.
+
+
+(D) Name any 5 programming languages and mention one popular use case for each.
+
+Python     :- Data Science and Automation
+Java       :- Enterprise Applications
+JavaScript :- Web Development
+C++        :- Game Development
+PHP        :- Website Backend Development
+
+(E) What is the difference between a developer and a tester? Answer in 2 lines.
+
+ Developer :-A developer writes and maintains software code to build applications.
+ Tester    :- A tester checks the software for bugs and ensures it works correctly before     release.
+
+               

@@ -1,0 +1,171 @@
+1. Write a Program to check the given number is Positive, Negative.
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    int num=-5;
+    
+    if(num>0)
+    {
+        printf("%d :- Num is Positive ",num);
+    }
+    else
+    {
+        printf("%d :- Num is Negative",num);
+    }
+    getch();
+}
+
+2. Write a Program to check the given year is leap year or not.
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    int year=2026;
+    
+    if(year%4==0)
+    {
+        printf("Given Year is a Leap year");
+    }
+    else if(year%400==0)
+    {
+        printf("Given Year is a Leap year");
+    }
+    else if(year%100==0)
+    {
+        printf("Given Year is a not Leap year");
+    }
+    else
+    {
+        printf("Given Year is a not Leap year");
+    }
+    getch();
+}
+
+
+
+17. Write Program use when statement. Display Monday to Sunday.
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    int day=5;
+    
+    switch(day){
+        
+        case 1:
+        printf("Monday");
+        break;
+        
+        case 2:
+        printf("Tuesday");
+        break;
+        
+        case 3:
+        printf("Wednesday");
+        break;
+        
+        case 4:
+        printf("Thrusday");
+        break;
+        
+        case 5:
+        printf("Friday");
+        break;
+        
+        case 6:
+        printf("Saturday");
+        break;
+        
+        case 7:
+        printf("Sunday");
+        break;
+        
+        default:
+        printf("Invalid Day Number");
+        
+    }
+    getch();
+}
+
+
+18. Write a Program of Addition, Subtraction ,Multiplication and Division using
+When (Must Be Menu Driven)
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    int num1=60;
+    int num2=15;
+    char choice='/';
+    
+  
+        switch(choice){
+        
+        case '+':
+        printf("Addition of two numbers is :- %d",num1+num2);
+        break;
+        
+        case '-':
+        printf("Subtraction of two numbers is :- %d",num1-num2);
+        break;
+        
+        case '*':
+        printf("Multiplication of two numbers is :- %d",num1*num2);
+        break;
+        
+        case '/':
+        printf("Divison of two number is :- %d",num1/num2);
+        break;
+        
+        default:
+        printf("Invalid choice");
+        
+    }
+    getch();
+}
+
+
+19. Write a program of to find out the Area of Triangle, Rectangle and Circle
+using If Condition.(Must Be Menu Driven)in
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    float base=5,height=8;
+    float length=12,width=14;
+    float radius=8;
+    float area;
+    
+    int choice=2;
+    
+    printf(" \n Choices of Menu");
+    printf("\n 1 For  Area of Triangle");
+    printf("\n 2 For  Area of Rectangle");
+    printf("\n 3 For  Area of  Circle");
+    
+        
+       if(choice==1)
+       {
+        area=0.5*base*height;
+        printf("\n Area of Triangle is :- %f",area);
+       }
+        
+        else if(choice==2)
+        {
+        area=length*width;
+        printf("\n Area of Rectangle is :- %f",area);
+        }
+        
+        else if(choice==3)
+        {
+        area=3.14*radius*radius;
+        printf("\n Area of Circle is :- %f",area);
+        }
+        
+        else{
+        printf("\n Invalid choice");
+         }
+    getch();
+}
+

@@ -1,0 +1,39 @@
+1)Fibonaci Series:-
+
+#include <stdio.h>
+#include <conio.h>
+int main()
+{
+	int num,a,b,c,i;
+	printf("Enter your num");
+	scanf("%d",&num);
+        a=0;
+        b=1;
+        printf("%d",a);
+        printf("%d",b);
+	    for(i=2;i<num;i++)
+	    {
+	    	c=a+b;
+		    printf("%d",c);
+		    a=b;
+		    b=c;
+	}
+	return 0;
+}
+
+2)Factorial of given num:-
+
+#include <stdio.h>
+#include <conio.h>
+int main()
+{
+	int num,fact=1,i;
+	printf("Enter your num");
+	scanf("%d",&num);
+	    for(i=1;i<=num;i++)
+	    {
+	    	fact=fact*i;
+	}
+	printf("Factorial of given num is :- %d",fact);
+	return 0;
+}

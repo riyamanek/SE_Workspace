@@ -1,0 +1,151 @@
+1.Create a simple JavaScript function called calculateTotal that takes two numbers: itemPrice and quantity, and returns the total bill amount using arithmetic operators.
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    
+    
+    int itemprice;
+    int quantity;
+    int totalbill;
+    
+    printf("Enter the ItemPrice ");
+    scanf("%d",&itemprice);
+    ?
+    printf("Enter the  Itemquantity");
+    scanf("%d",&quantity);
+    
+    printf("\n Iteamprice is :-%d",itemprice);
+    printf("\n Iteamquantity is :-%d",quantity);
+    
+    totalbill=itemprice*quantity;
+    printf("\n Bill Amount is %d",totalbill);
+    
+    
+    getch();
+    
+}
+
+
+2.Build a Flipkart-style discount calculator: given product price, discount percentage, and a boolean isMember, use arithmetic and logical operators to calculate the final price (apply an extra 5% off if isMember is true).
+
+#include <stdio.h>
+
+int main()
+{
+    float price, discount, discountPrice, finalPrice;
+    int isMember;
+
+    printf("Enter product price: ");
+    scanf("%f", &price);
+
+    printf("Enter discount percentage: ");
+    scanf("%f", &discount);
+
+    printf("Are you a member enter 1 or 0");
+    scanf("%d", &isMember);
+
+
+    discountPrice = price - (price * discount / 100);
+    
+    if (isMember == 1)
+    {
+        finalPrice = discountPrice - (discountPrice * 5 / 100);
+    }
+
+    printf("\nPrice after discount = %.2f", discountPrice);
+    printf("\nFinal price = %.2f", finalPrice);
+
+    return 0;
+}
+
+
+3.Write a function isEligibleForOffer that takes a user's age and total order value, and returns true if the user is 18 or older AND the order value is above 500, otherwise false.<br><br><em><strong>Hint:</strong> Use relational and logical operators together.</em>
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    
+    int age;
+    int ordervalue;
+    
+    printf("Enter the age");
+    scanf("%d",&age);
+    printf("enter the ordervalue");
+    scanf("%d",&ordervalue);
+    
+    printf("\nAge is :- %d",age);
+    printf("\nordervalue is :- %d",ordervalue);
+    
+    if(age>=18 && ordervalue>500)
+    {
+        printf("\nEligible for offer");
+    }
+     else
+     {
+         printf("\nNot Eligible for offer");
+     }   
+    
+    
+    getch();
+    
+}
+
+
+
+4.Given three variables: likes, comments, and shares (all numbers), write code to check if a post is 'trending' on Instagram (at least 1000 likes OR more than 200 comments AND at least 50 shares). Print the result.
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    
+    int likes;
+    int comments;
+    int shares;
+    
+    printf("Enter the likes:-");
+    scanf("%d",&likes);
+    printf("Enter the comments:-");
+    scanf("%d",&comments);
+    printf("Enter the shares:-");
+    scanf("%d",& shares);
+    
+    printf("\n likes is :- %d",likes);
+    printf("\n comments is :- %d",comments);
+    printf("\n shares is :- %d",shares);
+    
+    
+    
+    if(likes >= 1000 || comments > 200 && shares >= 50)
+    {
+        printf("\n post is 'trending' on Instagram ");
+    }
+    else
+    {
+        printf(" \n post is  not 'trending' on Instagram ");
+    }
+    
+    
+    getch();
+    
+}
+
+
+5.Write a code snippet that demonstrates the difference between pre-increment (++count) and post-increment (count++) by logging the values before and after using both on a followerCount variable.
+
+#include <stdio.h>
+#include <conio.h>
+void main(){
+    
+    int followerCount=10;
+    printf("\nOriginal followerCount value is :- %d ",followerCount);
+    
+    ++followerCount; //pre-increment
+    printf("\npre-increment followerCount value is :- %d ",followerCount);
+    
+    followerCount++; //post-increment
+     printf("\npost-increment followerCount value is :- %d ",followerCount);
+     
+    getch();
+    
+}

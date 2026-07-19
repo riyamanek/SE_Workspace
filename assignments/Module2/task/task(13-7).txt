@@ -1,0 +1,470 @@
+1) *
+   **
+   ***
+   ****
+   *****
+
+#include <stdio.h>
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+2) 1
+   12
+   123
+   1234
+   12345
+
+#include <stdio.h>
+int main(){
+    
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("%d",j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+3) 1
+   22
+   333
+   4444
+   55555
+
+
+#include <stdio.h>
+int main(){
+    
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("%d",i);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+4)      *
+       **
+      ***
+     ****
+    *****
+
+#include <stdio.h>
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+5)      1
+       21
+      321
+     4321
+    54321
+
+#include <stdio.h>
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=i;j>=1;j--)
+        {
+            printf("%d",j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+6)     *
+      **
+     ***
+    ****
+   *****
+
+#include<stdio.h>
+int main(){
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+
+7)       *
+        * *
+       * * *
+      * * * *
+     * * * * *
+
+#include<stdio.h>
+int main(){
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+
+8)     1    
+      1 2
+     1 2 3
+    1 2 3 4
+   1 2 3 4 5
+
+
+#include<stdio.h>
+int main(){
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("%d ",j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+9)     1
+      2 2
+     3 3 3
+    4 4 4 4
+   5 5 5 5 5
+
+#include <stdio.h>
+int main(){
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("%d ",i);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+ 
+
+10)  1
+    2 3
+    4 5 6
+    7 8 9 10
+    11 12 13 14 15
+
+
+#include <stdio.h>
+int main(){
+    int num=1;
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("%d ",num++);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+11)  1
+    1 0
+    1 0 1
+    1 0 1 0
+    1 0 1 0 1
+
+
+#include <stdio.h>
+
+int main()
+{
+   int row;
+   printf("enter num of rows");
+   scanf("%d",&row);
+   for(int i=1;i<=row;i++)
+   {
+       for(int j=1;j<=i;j++)
+       {
+          if((i+j)%2==0)
+          {
+              printf("1");
+          }
+          else
+          {
+              printf("0");
+          }
+       }
+       
+       printf("\n");
+   }
+    return 0;
+}
+
+
+12)   1
+     4 4
+     9 9 9
+     16 16 16 16
+     25 25 25 25 25
+
+#include <stdio.h>
+int main()
+{
+    for(int i=1;i<=5;i++)
+    {
+        for(int j=1;j<=i;j++)
+        {
+            printf("%d ",i*i);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+13) *
+    **
+    ***
+    ****
+    *****
+    ****
+    ***
+    **
+    *
+
+#include <stdio.h>
+int main(){
+    for(int i=1;i<=5;i++)
+    {
+        
+        for(int j=1;j<=i;j++)
+        {
+           printf("*");  
+        }
+           
+        printf("\n");
+    }
+    
+    for(int i=4;i>=1;i--)
+    {
+        for(int j=i;j>=1;j--)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+14) * * * * *
+     * * * *
+      * * *
+       * *
+        *
+
+#include <stdio.h>
+int main()
+{
+    
+    for(int i=5;i>=1;i--)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=i;j>=1;j--)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+15)**********
+   ****  ****
+   ***    ***
+   **      ** 
+   *        *
+
+#include <stdio.h>
+
+int main()
+{
+    for(int i=5;i>=1;i--)
+    {
+        for(int j=i;j>=1;j--)
+        {
+            printf("*");
+        }
+        for(int space=1;space<=(10-2*i);space++)
+        {
+            printf(" ");
+        }
+        for(int k=i;k>=1;k--)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+
+16)     *
+       * *
+      * * *
+     * * * *
+    * * * * *
+     * * * *
+      * * *
+       * *
+        *
+
+
+#include <stdio.h>
+int main(){
+    
+    for(int i=1;i<=5;i++)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    
+    
+    for(int i=4;i>=1;i--)
+    {
+        for(int space=1;space<=5-i;space++)
+        {
+            printf(" ");
+        }
+        for(int j=i;j>=1;j--)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+17)   A
+     B B
+     C C C
+     D D D D
+     E E E E E
+
+
+
+#include <stdio.h>
+
+int main()
+{
+   int row;
+   printf("enter num of rows");
+   scanf("%d",&row);
+   char ch='A';
+   for(int i=1;i<=row;i++)
+   {
+       for(int j=1;j<=i;j++)
+       {
+           printf("%c",ch);
+       }
+       ch++;
+       printf("\n");
+   }
+    return 0;
+}

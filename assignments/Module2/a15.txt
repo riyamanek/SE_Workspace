@@ -1,0 +1,125 @@
+1.Create a console-based app called Music Listening Logger that allows users to enter the number of minutes they listened to music each day for a week and stores this data in an array.
+
+2.Add a menu-driven interface to your Music Listening Logger so users can choose to log new listening minutes, view their weekly summary, or exit the app.<br><br><em><strong>Hint:</strong> Use a loop to repeatedly show the menu until the user selects exit.</em>
+
+3.Implement file handling in your Music Listening Logger so that when the user logs their daily listening minutes, the data is saved to a file named music_log.txt for persistence.
+
+4.Add a feature to your app that reads the saved music_log.txt file and generates a weekly report showing the total, average, and highest listening minutes in the week.
+
+5.Refactor your Music Listening Logger to allow users to reset their weekly data by clearing the array and deleting the contents of music_log.txt.<br><br><em><strong>Constraint:</strong> Make sure the reset option is available in the menu and asks for confirmation before deleting data.</em>
+
+
+
+
+#include <stdio.h>
+#include <conio.h>
+    
+    int music[7];
+    
+    void musiclog(){
+        FILE *fp=fopen("music.txt","w");
+        if(fp==NULL)
+        {
+            printf("Error");
+            return;
+        }
+        printf("Enter your lisening minutes\n");
+        for(int i=0;i<7;i++)
+        {
+            printf("Day %d:-",i+1);
+            scanf("%d",&music[i]);
+            fprintf(fp,"%d\n",music[i]);
+        }
+        fclose(fp);
+        printf("Data Saved\n");
+    }
+    void musicreport(){
+        FILE *fp=fopen("music.txt","r");
+        if(fp==NULL)
+        {
+            printf("No Data found\n");
+            return;
+        }
+        int total=0,highest;
+        float avg;
+        for(int i=0;i<7;i++)
+        {
+            fscanf(fp,"%d",&music[i]);
+        }
+        fclose(fp);
+        highest=music[0];
+        for(int i=0;i<7;i++)
+        {
+            total+=music[i];
+            if(music[i]>highest)
+            {
+                highest=music[i];
+            }
+        }
+        avg=total/7.0;
+        printf("Weekly report\n");
+        for(int i=0;i<7;i++)
+        {
+            printf("Day :- %d : %d minutes\n",i+1,music[i]);
+        }
+        printf("Total %d\n",total);
+        printf("highest %d\n",highest);
+        printf("Avg %f\n",avg);
+    }
+    
+    void resetdata(){
+        char choice;
+        printf("are you sure you want to resetdata (y/n):-");
+        scanf(" %c",&choice);
+        if(choice=='Y'||choice=='y')
+        {
+            for(int i=0;i<7;i++)
+            {
+                music[i]=0;
+            }
+            FILE *fp=fopen("music.txt","w");
+            if(fp!=NULL)
+            {
+                fclose(fp);
+            }
+            printf("Reset Data");
+        }
+        else
+        {
+            printf(" Not reset data");
+        }
+    }
+    void main()
+    {
+      int choice;
+      do{
+      printf("1 for music minutes\n");
+      printf("2 for weekly report\n");
+      printf("3 for Reset Data\n");
+       printf("4 for Exit\n");
+      printf("enter your choice :- ");
+      scanf("%d",&choice);
+      
+      switch(choice)
+      {
+          case 1:
+            musiclog();
+            break;
+          case 2:
+            musicreport();
+            break;
+          case 3:
+            resetdata();
+            break;
+          case 4:
+            printf("Exit your program");
+            break;
+          default:
+          printf("Invalid choice");
+      }
+      }while(choice!=4);
+    getch();
+}
+
+
+

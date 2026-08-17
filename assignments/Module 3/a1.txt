@@ -1,0 +1,190 @@
+1.Write a simple C program tasklist_c.c that allows you to add up to 5 tasks (as strings) to a global array and print all tasks using a for loop.
+
+#include <iostream>
+using namespace std;
+
+string task[5];
+int main()
+{
+    
+    
+  cout<<"Enter your Task list"<<endl;
+    for(int i=0;i<5;i++)
+    {
+        cout<<"Task"<<i+1<<":-";
+        cin>>task[i];
+    }
+    
+  cout<<"Task List"<<endl;
+  for(int i=0;i<5;i++)
+  {
+      cout<<task[i]<<endl;
+  }
+
+    return 0;
+}
+
+
+2.Modify your tasklist_c.c to add a function markTaskDone(int index) that sets the selected task to 'DONE' in the array, then print the updated list.<br><br><em><strong>Hint:</strong> Use a separate status array or append ' - DONE' to the task string.</em>
+
+#include <iostream>
+using namespace std;
+
+string task[5];
+string status[5];
+
+
+void markTaskDone(int index)
+{
+    status[index]="Done";
+}
+int main()
+{
+    int n,index;
+    cout<<"How many task to add?"<<" ";
+    cin>>n;
+    
+    for(int i=0;i<n;i++)
+    {
+        cout<<"Task"<<i+1<<":-";
+        cin>>task[i];
+        
+        status[i]="Not Done";
+    }
+    
+    cout<<"Enter to add task is done :- ";
+    cin>>index;
+    
+    index=index-1;
+    
+    markTaskDone(index);
+    
+    for(int i=0;i<n;i++)
+    {
+        cout<<"Task"<<i+1<<" "<<task[i]<<":-"<<status[i]<<endl;
+    }
+
+    return 0;
+}
+
+
+
+
+3.Create a Task class in your favorite OOP language (Java, Python, or C++) with properties: title and isDone. Add a method markDone() that sets isDone to true, and a method display() that prints the task with its status.
+
+#include <iostream>
+using namespace std;
+
+class Task
+{
+    public:
+    string title;
+    bool isDone;
+   
+   Task(string title)
+   {
+       this->title=title;
+       isDone=false;
+   }
+   void markDone()
+   {
+       isDone=true;
+   }
+   void display()
+   {
+       cout<<"Task :-"<<title<<endl;
+       
+       if(isDone==true)
+       {
+           cout<<"Task is done"<<endl;
+       }
+       else
+       {
+           cout<<"Task is not done"<<endl;
+       }
+   }
+    
+};
+
+int main(){
+
+  cout<<"Before Task Done"<<endl;    
+  Task t1("Assignment");
+  t1.display();
+  
+  
+  cout<<"After task Done"<<endl;
+  t1.markDone();
+  t1.display();
+
+    return 0;
+}
+
+
+4.Build a simple TaskList class/object that stores multiple Task objects and provides addTask(title), markTaskDone(index), and showTasks() methods. Demonstrate adding 3 tasks, marking one as done, and displaying all tasks with their statuses.
+
+#include <iostream>
+using namespace std;
+
+class TaskList
+{
+    public:
+    string task[3];
+    bool isDone[3];
+    int count=0;
+    
+    void addTask(string title)
+    {
+        task[count]=title;
+        isDone[count]=false;
+        count++;
+    }
+    void markTaskDone(int index)
+    {
+        isDone[index]=true;
+    }
+    void showTasks()
+    {
+        for(int i=0;i<count;i++)
+        {
+        cout<<"Task"<<i+1<<":- "<<task[i]<<" - ";
+        
+        if(isDone[i])
+        {
+            cout<<"Done"<<endl;
+        }
+        else
+        {
+            cout<<"Not done"<<endl;
+        }
+        
+        }
+    }
+};
+
+int main(){
+    
+    
+    TaskList list;
+    list.addTask("Assignment");
+    list.addTask("Practical");
+    list.addTask("Viva");
+    
+    list.markTaskDone(0);
+    list.showTasks();
+    
+    return 0;
+}
+
+
+5.Compare your procedural C version and OOP TaskList version: List 3 problems you faced in the C version that were solved by using classes and methods in the OOP version.
+
+
+C version: We had to manage task data separately.
+OOP: Class keeps the task data together.
+
+C version: We used separate functions for different tasks.
+OOP: Methods like addTask(), markTaskDone(), and showTasks() make the work easier.
+
+C version: Managing task status was confusing.
+OOP: The class makes it easier to manage task status.

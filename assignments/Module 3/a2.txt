@@ -1,0 +1,173 @@
+1.Create a class called Playlist with properties: name (string), createdOn (date), and isPublic (boolean). Instantiate an object of Playlist and print all its properties.
+
+#include <iostream>
+using namespace std;
+
+class Playlist
+{
+    public:
+    string name;
+    string createdOn;
+    bool isPublic;
+};
+int main()
+{
+    Playlist p;
+    p.name="Bollywoodsongs";
+    p.createdOn="18-08-2026";
+    p.isPublic=true;
+    
+    cout<<"My Playlist is:-"<<p.name<<endl;
+    cout<<"Playlist Created Date is:-"<<p.createdOn<<endl;
+    cout<<"Playlist is:-"<<p.isPublic<<endl;
+   
+
+    return 0;
+}
+
+2.Add a member function to your Playlist class named togglePublic() that switches isPublic between true and false each time it is called. Demonstrate by toggling the value twice and printing the result each time.
+
+
+#include <iostream>
+using namespace std;
+
+class Playlist
+{
+    public:
+    bool isPublic;
+    
+    void togglePublic()
+    {
+        isPublic=!isPublic;
+    }
+};
+int main(){
+    
+    Playlist p;
+    p.isPublic=true;
+    cout<<"Before use togglePublic function:-"<<p.isPublic<<endl;
+    
+    p.togglePublic();
+    cout<<"After use togglePublic function:-"<<p.isPublic<<endl;
+    
+    p.togglePublic();
+    cout<<"After once again call togglePublic function:-"<<p.isPublic<<endl;
+    
+    return 0;
+}
+
+3.Create a class called FoodOrder with properties: orderId (number), restaurantName (string), and isDelivered (boolean). Write a member function markDelivered() that sets isDelivered to true and prints a message. Instantiate FoodOrder and call markDelivered().
+
+#include <iostream>
+using namespace std;
+
+class FoodOrder
+{
+    public:
+    int orderId;
+    string restaurantName;
+    bool isDelivered;
+    
+     void markDelivered()
+     {
+         isDelivered=true;
+         cout<<"Order is Delivered";
+     }
+};
+
+int main(){
+    
+    FoodOrder order;
+    order.orderId=101;
+    order.restaurantName="Spicy Spoon";
+    order.isDelivered=false;
+    
+    order.markDelivered();
+    
+    
+    return 0;
+}
+
+4.Extend your Playlist class to include a member function addSong(songTitle) that adds the song title to an array property called songs. Demonstrate by adding three song titles and displaying the updated songs list.<br><br><em><strong>Hint:</strong> Initialize songs as an empty array inside the constructor.</em>
+
+#include <iostream>
+using namespace std;
+
+class Playlist
+{
+public:
+    string name;
+    string songs[10];
+    int count;
+
+    Playlist()
+    {
+        name = "My Playlist";
+        count = 0;
+    }
+
+    void addSong(string songTitle)
+    {
+        songs[count] = songTitle;
+        count++;
+    }
+
+    void display()
+    {
+        cout << "Playlist Name: " << name << endl;
+
+        for(int i = 0; i < count; i++)
+        {
+            cout << songs[i] << endl;
+        }
+    }
+};
+
+int main()
+{
+    Playlist p;
+
+    p.addSong("Perfect");
+    p.addSong("Memories");
+    p.addSong("Untill I found you");
+    p.addSong("Attention");
+
+    p.display();
+
+    return 0;
+}
+
+
+5.Refactor your FoodOrder class so that the constructor takes an object as a parameter (with keys orderId, restaurantName, isDelivered) instead of separate arguments. Update your instantiation code to use this new constructor signature.
+
+#include <iostream>
+using namespace std;
+
+class FoodOrder
+{
+    public:
+    int orderId;
+    string restaurantName;
+    bool isDelivered;
+    
+    FoodOrder(int orderId,string restaurantName,bool isDelivered)
+    {
+        this->orderId=orderId;
+        this->restaurantName=restaurantName;
+        this->isDelivered=isDelivered;
+    }
+    
+    void display()
+    {
+        cout<<"OrderId:-"<<orderId<<endl;
+        cout<<"RestaurantName:-"<<restaurantName<<endl;
+        cout<<"IsDelivered:-"<<isDelivered<<endl;
+    }
+};
+
+int main(){
+    
+    FoodOrder order(101,"Spicyspoon",true);
+    order.display();
+    return 0;
+}

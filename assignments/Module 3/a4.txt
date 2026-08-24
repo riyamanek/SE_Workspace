@@ -1,0 +1,208 @@
+1.Create a base class called SocialMediaUser with properties username and followers, and a method displayProfile() that prints the username and follower count.
+
+#include <iostream>
+using namespace std;
+
+class SocialMediaUser
+{
+    public:
+    string username;
+    int followers;
+    
+    void displayProfile(string username,int followers)
+    {
+        cout<<"username:-"<<username<<endl;
+        cout<<"followers:-"<<followers<<endl;
+    }
+};
+int main()
+{
+   SocialMediaUser s;
+   s.displayProfile("Riya manek",500);
+
+    return 0;
+}
+
+
+2.Build a YouTuber class that inherits from SocialMediaUser and adds a property channelName and a method uploadVideo(title) that prints 'Video [title] uploaded to [channelName]'.
+
+#include <iostream>
+using namespace std;
+
+class SocialMediaUser
+{
+    public:
+    string username;
+    int followers;
+    
+    void displayProfile(string username,int followers)
+    {
+        cout<<"username:-"<<username<<endl;
+        cout<<"followers:-"<<followers<<endl;
+    }
+};
+
+class YouTuber: public SocialMediaUser
+{
+    public:
+    string channelName;
+    
+    void uploadVideo(string Videotitle)
+    {
+        cout<<"Videotitle is:-"<<Videotitle<<endl;
+    }
+};
+int main()
+{
+   YouTuber y;
+   y.displayProfile("Riya manek",500);
+   y.uploadVideo("Comedy videos");
+
+    return 0;
+}
+
+
+3.Create a Podcaster class that also inherits from SocialMediaUser and adds a property podcastName and a method publishEpisode(episodeTitle) that prints 'Episode [episodeTitle] published on [podcastName]'.
+
+#include <iostream>
+using namespace std;
+
+class SocialMediaUser
+{
+    public:
+    string username;
+    int followers;
+    
+    void displayProfile(string username,int followers)
+    {
+        cout<<"username:-"<<username<<endl;
+        cout<<"followers:-"<<followers<<endl;
+    }
+};
+
+class Podcaster: public SocialMediaUser
+{
+    public:
+    string podcastName="Girl Talk diaries";
+    
+    void publishEpisode(string episodeTitle)
+    {
+        cout<<"podcastName is:-"<<podcastName<<endl;
+        cout<<"episodeTitle is:-"<<episodeTitle<<endl;
+    }
+};
+int main()
+{
+  Podcaster p;
+   p.displayProfile("Riya manek",500);
+   p.publishEpisode("Episode 1");
+
+    return 0;
+}
+
+
+4.Demonstrate multilevel inheritance by creating a class GamingYouTuber that inherits from YouTuber and adds a method streamGame(gameName) which prints '[username] is now streaming [gameName] on [channelName]'.
+
+#include <iostream>
+using namespace std;
+class SocialMediaUser
+{
+    public:
+    string username;
+    int followers;
+    
+    void displayProfile(string username,int followers)
+    {
+        cout<<"username:-"<<username<<endl;
+        cout<<"followers:-"<<followers<<endl;
+    }
+};
+
+
+class YouTuber : public SocialMediaUser
+{
+    public:
+    string channelName;
+    
+    void uploadVideo(string Videotitle)
+    {
+        cout<<"Videotitle is:-"<<Videotitle<<endl;
+    }
+    
+};
+class GamingYouTuber : public YouTuber
+{
+    public:
+    string gameName;
+    void streamGame( string gameName)
+    {
+        cout << username << " is now streaming " << gameName << " On " << channelName << endl;
+    }
+};
+int main()
+{
+    GamingYouTuber g;
+    g.username="Riya manek";
+    g.channelName="Riya Gaming vlogger";
+    
+    g.displayProfile("Riya manek",500);
+    g.uploadVideo("Mindcrafte videos");
+    g.streamGame("Pubg");
+
+    return 0;
+}
+
+
+5.Implement hierarchical inheritance by creating an InstagramInfluencer class that inherits from SocialMediaUser and adds a method postStory(storyTitle) which prints '[username] posted a new story: [storyTitle]'.<br><br><em><strong>Hint:</strong> Think about how SocialMediaUser is the parent for YouTuber, Podcaster, and InstagramInfluencer.</em>
+
+#include <iostream>
+using namespace std;
+
+class SocialMediaUser
+{
+    public:
+    string username;
+    int followers;
+    
+    void displayProfile(string username,int followers)
+    {
+        cout<<"username:-"<<username<<endl;
+        cout<<"followers:-"<<followers<<endl;
+    }
+};
+
+class YouTuber:public SocialMediaUser
+{
+    public:
+    string channelname;
+};
+class Podcaster :public SocialMediaUser
+{
+    public:
+    string podcastname;
+};
+
+
+class InstagramInfluencer :public SocialMediaUser
+{
+    public:
+    
+    
+    void postStory(string storyTitle)
+    {
+        cout<< username  <<" Post a new story " << storyTitle <<endl;
+    }
+    
+};
+
+
+int main()
+{
+    
+    InstagramInfluencer i;
+    i.username="Riya manek";
+    i.postStory("Traditional look");
+    return 0;
+}
+
+

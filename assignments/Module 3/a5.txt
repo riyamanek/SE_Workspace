@@ -1,0 +1,148 @@
+1.Create a Java class called PaymentProcessor with two overloaded methods processPayment(): one that takes only an amount, and one that takes amount and a coupon code. Print which version is called and the final amount in each case.
+
+
+#include <iostream>
+using namespace std;
+
+class PaymentProcessor
+{
+    public:
+    void processPayment(double amount)
+    {
+       cout<<"Amount:-"<<amount<<endl;
+    }
+    void processPayment(double amount,string coupon_code)
+    {
+        cout<<"Amount:-"<<amount<<" "<<"Coupon code:-"<<coupon_code<<endl;
+        
+        if(coupon_code =="cp100")
+        {
+            amount=amount-(amount*0.10);
+        }
+        cout<<"Final Amount:-"<<amount<<endl;
+    }
+};
+int main()
+{
+   PaymentProcessor p;
+   p.processPayment(1000);
+   p.processPayment(1000,"cp100");
+
+    return 0;
+}
+
+
+2.Build two classes, InstagramUploader and YouTubeUploader, each with a method uploadContent(). Both should extend a base class SocialMediaUploader and override uploadContent() to print a message showing how uploading works differently for Instagram and YouTube.
+
+#include<iostream>
+using namespace std;
+
+class SocialMediaUploader
+{
+    public:
+    virtual void uploadContent()
+    {
+        cout<<"Uploading content"<<endl;
+    }
+    
+};
+
+class InstagramUploader : public SocialMediaUploader
+{
+    public:
+    void uploadContent()
+    {
+        cout<<"Uploading reels,post"<<endl;
+    }
+};
+class YouTubeUploader : public SocialMediaUploader
+{
+    public:
+    void uploadContent()
+    {
+        cout<<"Uploading videos,shorts"<<endl;
+    }
+};
+
+int main()
+{
+    SocialMediaUploader s;
+    InstagramUploader i;
+    YouTubeUploader y;
+    s.uploadContent();
+    i.uploadContent();
+    y.uploadContent();
+    return 0;
+}
+
+
+3.Write a function in Java or Python that simulates a Flipkart-style search: overload a method searchProduct() to allow searching by product name or by product name and category. Demonstrate both usages with sample data.
+
+#include<iostream>
+using namespace std;
+
+class Flipkartstyle
+{
+    public:
+    void searchProduct(string productname)
+    {
+        cout<<"product Name:-"<<productname<<endl;
+    }
+    
+    void searchProduct(string productname,string productcategory)
+    {
+        cout<<"product Name:-"<<productname<<endl;
+        cout<<"product category:-"<<productcategory<<endl;
+    }
+};
+
+
+
+int main()
+{
+    Flipkartstyle f;
+    f.searchProduct("Mobile");
+    f.searchProduct("Mobile","Electronic device");
+    return 0;
+}
+
+
+
+4.Given this code: class MusicPlayer { void play(String song) { System.out.println("Playing: " + song); } } class SpotifyPlayer extends MusicPlayer { void play(String song) { System.out.println("Streaming on Spotify: " + song); } } — Create an object of type MusicPlayer but assign it a SpotifyPlayer instance, then call play(). Explain the output.<br><br><em><strong>Hint:</strong> This tests runtime polymorphism (overriding) and dynamic method dispatch.</em>
+
+#include<iostream>
+using namespace std;
+
+class MusicPlayer
+{
+    public:
+    virtual void play(string song)
+    {
+        cout<<"Playing:-"<<song<<endl;
+    }
+};
+
+class SpotifyPlayer : public MusicPlayer
+{
+    public:
+    void play(string song)
+    {
+        cout<<"Streaming on Spotify:- "<<song<<endl;
+    }
+};
+
+
+int main()
+{
+    MusicPlayer *m;
+    
+    m = new MusicPlayer();
+    m->play("beliver");
+    delete m;
+    
+    m = new SpotifyPlayer();
+     m->play("beliver");
+    delete m;
+    
+    return 0;
+}

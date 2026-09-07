@@ -1,0 +1,159 @@
+1.Create a new HTML file called foodie-profile.html with the full HTML5 boilerplate structure (<!DOCTYPE html>, <html>, <head>, <body>), and set the title to 'My Foodie Profile'.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"My Foodie Profile"</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+2.Inside foodie-profile.html, add headings and paragraphs to introduce yourself as a food lover, including your favorite cuisine and a short story about your best meal.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Foodie Profile</title>
+</head>
+<body>
+
+    <h1>My Foodie Profile</h1>
+
+    <h2>About Me</h2>
+    <p>Hello! My name is Riya. I am a food lover.</p>
+
+    <h2>My Favorite Cuisine</h2>
+    <p>My favorite cuisine is South Indian food. I especially love dosa because it is crispy, tasty, and delicious.</p>
+
+    <h2>My Best Meal</h2>
+    <p>My best meal was a freshly prepared South Indian meal with crispy dosa, sambar, and coconut chutney. The dosa was hot and crispy, and the combination with sambar and chutney made the meal very special and memorable for me.</p>
+
+</body>
+</html>
+
+
+
+3.Add an unordered list of your top 5 favorite dishes (like you'd see on Zomato), and a numbered list of 3 restaurants you want to try next.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Foodie Profile</title>
+</head>
+<body>
+
+    <h1>My Foodie Profile</h1>
+
+    <h2>About Me</h2>
+    <p>Hello! My name is Riya. I am a food lover.</p>
+
+    <h2>My Favorite Cuisine</h2>
+    <p>My favorite cuisine is South Indian food. I especially love dosa because it is crispy, tasty, and delicious.</p>
+
+    <h2>My Best Meal</h2>
+    <p>My best meal was a freshly prepared South Indian meal with crispy dosa, sambar, and coconut chutney. The dosa was hot and crispy, and the combination with sambar and chutney made the meal very special and memorable for me.</p>
+
+    <ul>
+        <li>Idli</li>
+        <li>Masala Dosa</li>
+        <li>paper dosa</li>
+        <li>paneer chili</li>
+        <li>Dry manchurian</li>
+    </ul>
+
+    <h2> 3 restaurants I want to try next</h2>
+
+    <ol>
+        <li>Sankalp dosa</li>
+        <li>Spicy spoon</li>
+        <li>Kake di haddi</li>
+    </ol>
+
+</body>
+</html>
+
+
+
+4.Insert an image of your favorite dish using the <img> tag, and make the image clickable so it opens the official website of that dish or restaurant in a new tab using an anchor (<a>) tag.<br><br><em><strong>Hint:</strong> Use target="_blank" in your anchor tag.</em>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My fav dish</title>
+</head>
+<body>
+   <h2>My fav dish is Dosa</h2>
+
+   <a href="https://www.sankalp.co.in/">
+
+   <img src="https://res.cloudinary.com/jerrick/image/upload/v1676726625/63f0d161569337001d920901.jpg" width="500px">
+</a>
+   
+   <p>Dosa is my favorite South Indian dish.</p>
+</body>
+</html>
+
+
+
+5.Create a table that compares 3 food delivery apps (e.g., Zomato, Swiggy, Uber Eats) with columns for App Name, Delivery Charges, and Rating. Fill in sample data for each.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>My Foodie Profile</title>
+</head>
+<body>
+
+
+    <p>Food delivery App Table</p>
+   <table border="2">
+    <tr>
+        <th>App Name</th>
+        <th> Delivery Charges</th>
+        <th>Rating</th>
+    </tr>
+
+    <tr>
+        <td>Zomato</td>
+        <td>30 Rs</td>
+        <td>4.5</td>
+    </tr>
+
+    <tr>
+        <td>Swiggy</td>
+        <td>20 Rs</td>
+        <td>4.2</td>
+    </tr>
+
+    <tr>
+        <td>Blinkit</td>
+        <td>10 Rs</td>
+        <td>4.7</td>
+    </tr>
+
+    
+   </table>
+</body>
+</html>
+
+
+</body>
+</html>
+
+</body>
+</html>

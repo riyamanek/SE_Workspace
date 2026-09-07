@@ -1,0 +1,52 @@
+
+1.Open Instagram's home page in Chrome, right-click on a post image, and use Inspect Element to find the exact HTML tag and CSS class used for the image container. Write down the tag name and class.
+
+HTML Tag: img
+Attribute: class
+
+<img class="" src="img path is here">
+
+
+
+2.Create a simple HTML file named myprofile.html that displays your name, a short bio, and a profile picture using appropriate HTML tags (h1, p, img). Open it in your browser and view the result.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My profile</title>
+</head>
+<body>
+    <h1>Riya manek</h1>
+    <p>My name is Riya manek </p>
+
+    <img src="https://images.pexels.com/photos/31284696/pexels-photo-31284696.jpeg?cs=srgb&dl=pexels-optical-chemist-340351297-31284696.jpg&fm=jpg" alt="profile not found" width="250px">
+</body>
+</html>
+
+
+
+3.Use Chrome DevTools to change the background color of your name (in myprofile.html) to any color you like, live in the browser, without editing the HTML file.
+
+element.style {
+    background-color: red;
+}
+
+
+4.
+Draw a diagram or write a list showing the DOM structure (parent-child relationships) of your myprofile.html page. Include at least 3 levels (html > body > your content).
+
+html
+	
+    head
+	   title
+                 My Profile
+    body
+           h1
+             Riya Manek
+    
+           p
+    	    Hello! My name is Riya...
+           img
+            Profile Picture

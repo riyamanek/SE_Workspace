@@ -1,0 +1,150 @@
+1.Create an HTML file that uses semantic tags to build a simple blog post layout with <header> for the blog title, <nav> for navigation links (Home, Explore, About), <article> for the main post content, and <footer> for copyright information.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Blog</title>
+</head>
+<body>
+    <header>
+        <h1>My First Blog</h1>
+        <p>
+            Today, I am starting my blogging journey. Through this blog, I will
+            share my thoughts, knowledge, and experiences with everyone.
+        </p>
+    </header>
+
+    <nav>
+        <a href="Home">Home</a>
+        <a href="Explore">Explore</a>
+        <a href="About">About</a>
+    </nav>
+
+    <article>
+        <p>
+            This is my first blog post. I am learning HTML and
+            understanding how semantic tags are used to create
+            a proper webpage structure.
+        </p>
+    </article>
+
+    <footer>
+        <h2>My Daily Blog</h2>
+    </footer>
+</body>
+</html>
+
+2.Recreate a Zomato-style restaurant listing card using semantic HTML5 tags: use <article> for each restaurant, <header> for the restaurant name, and <footer> for rating and delivery time.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <header>
+        <h1>Spicy Spoon Restaurant </h1>
+        <p>
+            Spicy Spoon Restaurant offers delicious and freshly prepared food
+            with a perfect blend of taste and spices. Enjoy a variety of
+             Indian and Chinese dishes in a comfortable and friendly atmosphere.
+        </p>
+    </header>
+    <article>
+        <p>
+            Spicy Spoon Restaurant is a great place to enjoy tasty and satisfying meals. 
+            It serves a variety of flavorful dishes prepared with fresh ingredients.
+             The restaurant provides friendly service and a pleasant atmosphere for family
+             and friends.
+
+        </p>
+    </article>
+    <footer>
+        <p>
+            4.5 Rating
+        </p>
+        <p>
+            30 Min Delivery
+        </p>
+    </footer>
+</body>
+</html>
+
+
+3.Build a Flipkart-style product page section with semantic tags: use <header> for the product title and image, <nav> for category breadcrumbs, <article> for product details and description, and <footer> for offers or warranty info.<br><br><em><strong>Hint:</strong> Focus on the correct use of tags for structure, not just visual layout.</em>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Iphone 17 pro max</h1>
+        <img src="https://mobidevices.com/images/2025/07/iPhone-17-Pro.jpeg" width="500px">
+    </header>
+    <nav>
+        <a href="Home">Home</a>
+        <a href="Electronic">Electronic</a>
+        <a href="Smartphone">Smartphone</a>
+    </nav>
+    <article>
+        <p>
+            The iPhone 17 Pro Max is a premium smartphone designed for powerful performance,
+             advanced photography, and a smooth user experience. It features a large high-quality display, 
+             a powerful processor, advanced camera system, and long-lasting battery.
+        </p>
+        <p>
+            Price:₹1,49,900
+        </p>
+    </article>
+    <footer>
+        <p>
+            Special Offer: Get exciting bank discounts and exchange offers.
+        </p>
+        <p>
+             Warranty: 1 Year Manufacturer Warranty
+        </p>
+    </footer>
+</body>
+</html>
+
+
+4.Given a non-semantic HTML snippet for a movie review (using only <div> and <span>), refactor it to use appropriate semantic tags like <header>, <nav>, <article>, and <footer> for improved accessibility and SEO.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review</title>
+</head>
+<body>
+    <header>
+        <h1>3 Idiots</h1>
+    </header>
+    <nav>
+        <a href="Home">Home</a>
+        <a href="Movie">Movie</a>
+        <a href="Review">Review</a> 
+    </nav>
+    <article>
+        <h2>3 Idiots </h2>
+        <p>
+            3 Idiots is an inspiring Bollywood movie about friendship, college life, and following your passion.
+            The story follows three friends who face different challenges during their college journey. 
+            The movie teaches us that success is not only about getting good marks, but also about gaining knowledge
+             and doing what we love.
+        </p>
+    </article>
+    <footer>
+        <h2>Rating:4.5/5</h2>
+    </footer>
+</body>
+</html>

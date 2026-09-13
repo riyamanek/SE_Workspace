@@ -1,0 +1,255 @@
+1.Create a Content class with properties: title, platform, views, and status. Write a method to display all details of a Content object.
+2.Build a console menu that lets users add new content ideas (title, platform, views, status) and save each entry to a text file named content_list.txt.<br><br><em><strong>Hint:</strong> Use file handling to append each new content item to the file.</em>
+3.Implement a function to read all content items from content_list.txt and display them in a numbered list, showing title and platform for each.
+4.Add an option in your console app to let users update the status of any content idea by selecting its number from the displayed list and saving the change back to the file.<br><br><em><strong>Hint:</strong> You will need to read all items, modify the selected one, and overwrite the file.</em>
+5.Add a feature to delete a content item by its number from the list, update the file accordingly, and display the updated list to confirm deletion.
+
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+using namespace std;
+
+class Content
+{
+public:
+    string title;
+    string platform;
+    int views;
+    string status;
+
+    void display()
+    {
+        cout << "Title:- " << title << endl;
+        cout << "Platform:- " << platform << endl;
+        cout << "Views:- " << views << endl;
+        cout << "Status:- " << status << endl;
+    }
+};
+
+void addcontent()
+{
+    Content c;
+
+    cout << "Enter your title:-" << endl;
+    cin.ignore();
+    getline(cin, c.title);
+
+    cout << "Enter your Platform:-" << endl;
+    getline(cin, c.platform);
+
+    cout << "Enter your Views:-" << endl;
+    cin >> c.views;
+
+    cin.ignore();
+
+    cout << "Enter your Status:-" << endl;
+    getline(cin, c.status);
+
+    ofstream outfile;
+
+    outfile.open("content_list.txt", ios::app);
+
+    outfile << c.title << endl;
+    outfile << c.platform << endl;
+    outfile << c.views << endl;
+    outfile << c.status << endl;
+
+    outfile.close();
+
+    cout << "Content added successfully!" << endl;
+}
+
+void displaycontent()
+{
+    ifstream infile;
+
+    infile.open("content_list.txt");
+
+    Content c;
+    int number = 1;
+
+    cout << "\nContent List" << endl;
+
+    while (getline(infile, c.title))
+    {
+        getline(infile, c.platform);
+
+        infile >> c.views;
+        infile.ignore();
+
+        getline(infile, c.status);
+
+        cout << number << ". "
+             << c.title << " - "
+             << c.platform << endl;
+
+        number++;
+    }
+
+    infile.close();
+}
+
+
+// UPDATE USING VECTOR
+void updatecontent()
+{
+    int choice;
+    string newstatus;
+
+    cout << "Enter content number to update:- ";
+    cin >> choice;
+
+    cout << "Enter new status:- ";
+    cin.ignore();
+    getline(cin, newstatus);
+
+    ifstream infile;
+    infile.open("content_list.txt");
+
+    vector<Content> contents;
+    Content c;
+
+    while (getline(infile, c.title))
+    {
+        getline(infile, c.platform);
+
+        infile >> c.views;
+        infile.ignore();
+
+        getline(infile, c.status);
+
+        contents.push_back(c);
+    }
+
+    infile.close();
+
+    if (choice >= 1 && choice <= contents.size())
+    {
+        contents[choice - 1].status = newstatus;
+
+        ofstream outfile;
+        outfile.open("content_list.txt", ios::trunc);
+
+        for (int i = 0; i < contents.size(); i++)
+        {
+            outfile << contents[i].title << endl;
+            outfile << contents[i].platform << endl;
+            outfile << contents[i].views << endl;
+            outfile << contents[i].status << endl;
+        }
+
+        outfile.close();
+
+        cout << "Status updated successfully!" << endl;
+    }
+    else
+    {
+        cout << "Invalid content number!" << endl;
+    }
+}
+
+
+// DELETE USING VECTOR
+void deletecontent()
+{
+    int choice;
+
+    cout << "Enter content number to delete:- ";
+    cin >> choice;
+
+    ifstream infile;
+    infile.open("content_list.txt");
+
+    vector<Content> contents;
+    Content c;
+
+    while (getline(infile, c.title))
+    {
+        getline(infile, c.platform);
+
+        infile >> c.views;
+        infile.ignore();
+
+        getline(infile, c.status);
+
+        contents.push_back(c);
+    }
+
+    infile.close();
+
+    if (choice >= 1 && choice <= contents.size())
+    {
+        contents.erase(contents.begin() + choice - 1);
+
+        ofstream outfile;
+        outfile.open("content_list.txt", ios::trunc);
+
+        for (int i = 0; i < contents.size(); i++)
+        {
+            outfile << contents[i].title << endl;
+            outfile << contents[i].platform << endl;
+            outfile << contents[i].views << endl;
+            outfile << contents[i].status << endl;
+        }
+
+        outfile.close();
+
+        cout << "Content deleted successfully!" << endl;
+
+        cout << "\nUpdated Content List:" << endl;
+        displaycontent();
+    }
+    else
+    {
+        cout << "Invalid content number!" << endl;
+    }
+}
+
+
+int main()
+{
+    int choice;
+
+    do
+    {
+        cout << "\nCONTENT MANAGER" << endl;
+        cout << "1. Add Content" << endl;
+        cout << "2. Display Content" << endl;
+        cout << "3. Update Status" << endl;
+        cout << "4. Delete Content" << endl;
+        cout << "5. Exit" << endl;
+
+        cout << "Enter your choice:- ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            addcontent();
+            break;
+
+        case 2:
+            displaycontent();
+            break;
+
+        case 3:
+            updatecontent();
+            break;
+
+        case 4:
+            deletecontent();
+            break;
+
+        case 5:
+            cout << "Program ended." << endl;
+            break;
+
+        default:
+            cout << "Invalid choice!" << endl;
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}

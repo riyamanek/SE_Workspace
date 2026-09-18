@@ -1,0 +1,203 @@
+1.Create an HTML file for a Flipkart-style product card and apply inline CSS to set a unique background color and font size for the product title only.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipKart Product Style</title>
+</head>
+<body>
+    <div>
+    <h2 style="background-color: palevioletred; font-size: 40px;">
+        Samsung Galaxy s25 Ultra
+    </h2>
+    <img src="s25.webp" width="500px">
+    <P>Price 80,000 </P>
+    <p>Rating 4.5 </p>
+
+    <button>Add to cart</button>
+    <button>Buy to now</button>
+    </div>
+</body>
+</html>
+2.Build a Myntra-like offer banner using internal CSS (inside a <style> tag) to set a custom font family, text color, and background color for the banner text.
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contain
+        {
+            background-color: plum;
+            color: white;
+            text-align: center;
+            font-family: initial;
+        }
+        .contain h1
+        {
+            font-size: 40px;
+        }
+        .contain h2
+        {
+            font-size: 30px;
+        }
+        .contain p
+        {
+            font-size: 20 px;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="contain">
+        <h1>
+            BIG FASHION SALE
+        </h1>
+        <h2>
+            UP TO 70% OFF
+        </h2>
+        <h2>
+            Fashion for Every Style
+        </h2>
+        <p>
+            Extra 10% OFF on First Order <br>
+            Free Shipping on Orders Above ₹999 <br>
+           Limited Time Offer
+        </p>
+        <h2>
+            SHOP NOW
+        </h2>
+    
+
+
+        </div>
+ </body>
+ </html>
+
+3.Create a separate CSS file named styles.css and link it to your HTML file. Use external CSS to style all <button> elements with a Zomato-inspired color, rounded corners, and a hover effect that changes the background color.
+
+externalcc.html file:-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Food Order</title>
+    <link rel="stylesheet" href="externalstyle.css">
+</head>
+<body>
+    <h2>
+        Zomato Food Order
+    </h2>
+    <button>
+        Order Now
+    </button>
+    <button>
+        View Menu
+    </button>
+</body>
+</html>
+
+externalstyle.css file:-
+
+button
+{
+    background-color: plum;
+    color: white;
+    border-radius:25px ;
+    font-family: initial;
+    font-size: medium;
+    cursor: pointer;
+}
+button:hover
+{
+    background-color: hotpink;
+    border: 2px solid black;
+}
+
+
+
+
+4.Write CSS selectors to style all elements with the class 'playlist-item' (for a Spotify playlist page) to have a dark background and white text. Then, add a rule to highlight the currently playing song with a different color using a unique id selector.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist</title>
+    <style>
+        .playlist-item
+        {
+            background-color: black;
+            color: white;
+            padding:20px;
+            margin: 5px;
+            font-family: initial;
+        }
+        #playlist-item
+        {
+            color:white;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="playlist-item">GUZARA</div>
+    <div class="playlist-item">PEHLE BHI MAIN</div>
+    <div class="playlist-item" id="playlist-item">TAINU KHABAR NAHI</div>
+    <div class="playlist-item">SATRANGA</div>
+    <div class="playlist-item">MUSHKHILL HAI</div>
+    <div class="playlist-item">ZINDGI TERE NAAM</div>
+    <div class="playlist-item">TU HAI KI NAHI</div>
+    <div class="playlist-item">TERE SANG ISHQ HUA</div>
+    <div class="playlist-item">DEKHA TENU</div>
+    <div class="playlist-item">YEH RAATEN YEH MAUSAM</div>
+</body>
+</html>
+
+
+
+
+5.Implement a simple light/dark mode switch for a BookMyShow movie detail page using internal CSS and a toggle button. When the button is clicked, switch between light and dark color themes for the page.<br><br><em><strong>Hint:</strong> Use JavaScript to add or remove a 'dark-mode' class on the <body> and define the color themes in CSS.</em>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        .darkmode
+        {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Book MyShow</h1>
+    <h2>Pritam and Pedro</h2>
+    <p>Rating :- 4.5/5</p>
+    <p>Comedy and Drama</p>
+    <p>Hindi Movie and Time :- 2h 15min</p>
+    <p>Watch Pritam and Pedro with your friends and family!</p>
+    <button onclick="changemode()">Light/Dark Mode</button>
+
+    <script>
+        function changemode()
+        {
+            document.body.classList.toggle("darkmode");
+        }
+    </script>
+</body>
+</html>

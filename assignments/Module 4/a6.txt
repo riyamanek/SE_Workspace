@@ -1,0 +1,203 @@
+1.Create an HTML file that displays a Zomato-style restaurant card with a restaurant name, cuisine type, and rating. Use CSS to add margin, padding, and a visible border to the card so that each section is clearly separated.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Style restaurant card</title>
+    <style>
+        .restaurant
+        {
+            margin: 50px ;
+            padding:50px ;
+            border: 2px solid gray;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="restaurant">
+    <h1>Spicy Spoon</h1>
+    <h2>Punjabi,chinese,Southindian</h2>
+    <h2>rating 4.5/5</h2>
+    </div>
+</body>
+</html>
+
+
+2.Design a Flipkart-style product tile with an image, product name, and price. Use different display properties (block, inline-block, none) to control the layout of the product name and price, and hide the price when a specific CSS class is added.<br><br><em><strong>Hint:</strong> Try toggling the class in your HTML to see the effect.</em>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Product</title>
+
+    <style>
+        .product {
+            width: 250px;
+            padding: 15px;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        .product img {
+            width: 200px;
+            display: block;
+            margin: auto;
+        }
+
+        .product-name {
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .price {
+            display: block;
+            color: green;
+            font-size: 18px;
+        }
+
+        .hide-price {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="product">
+
+        <img src="https://m.media-amazon.com/images/I/81vxWpPpgNL.jpg" >
+
+        <span class="product-name">Samsung Galaxy s24 ultra</span>
+
+        <p class="price">90,000</p>
+
+    </div>
+
+</body>
+</html>
+
+
+3.Build a fixed-position WhatsApp chat notification badge at the bottom right corner of the screen. Use position: fixed and appropriate margin and padding to ensure it stays visible even when scrolling.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Chat Badge</title>
+
+    <style>
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: green;
+            color: white;
+            padding: 12px;
+            margin: 5px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <p>Scroll the page to see the WhatsApp badge.</p>
+
+
+    <div class="whatsapp">
+         WhatsApp Chat
+    </div>
+
+</body>
+</html>
+
+
+4.Create a BookMyShow movie poster grid where each poster uses position: relative. Add a 'New' badge to the top-left corner of one poster using position: absolute, so it overlays the image correctly.<br><br><em><strong>Hint:</strong> Use top and left properties with position: absolute inside a relatively positioned parent.</em>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid
+        {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        .poster
+        {
+            position: relative;
+        }
+        .poster img
+        {
+            width: 350px;
+            height: 500px;
+        }
+        .new
+        {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color:red;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>BookMyShow Movie Poster</h2>
+    <div class="grid">
+        <div class="poster">
+            <img src="https://www.tallengestore.com/cdn/shop/products/Pathan-ShahRukhKhan-BollywoodHindiMoviePoster_7604af0e-9691-4b4d-83b5-5ac53eb3c8e1.jpg?v=1675251729">
+            <span class="new">New</span>
+        </div>
+
+        <div class="poster">
+            <img src="https://m.media-amazon.com/images/I/91ZWAeRiIVS._SL1500_.jpg">
+        </div>
+
+        <div class="poster">
+            <img src="https://preview.redd.it/new-poster-for-jawan-v0-iavbuomu9vib1.jpg?width=1080&crop=smart&auto=webp&s=60328afea926dbeff3ee65c43569be88eb0e3f98">
+        </div>
+    </div>
+</body>
+</html>
+
+
+5.Refactor your CSS for any one of the above tasks to reduce repeated margin and padding values by using a reusable CSS class. Explain in a comment how this improves maintainability.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Style restaurant card</title>
+    <style>
+        .restaurant
+        {
+            
+            border: 2px solid gray;
+            width:350px;
+            height:200px;
+        }
+        .spaces
+        {
+            margin: 10px;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="restaurant">
+    <h1 class="spaces">Spicy Spoon</h1>
+    <h2 class="spaces">Punjabi,chinese,Southindian</h2>
+    <h2 class="spaces">rating 4.5/5</h2>
+    </div>
+</body>
+</html>

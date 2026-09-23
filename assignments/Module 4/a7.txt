@@ -1,0 +1,225 @@
+1.Create an HTML file with a container div and 4 images of your favorite apps (Instagram, WhatsApp, Zomato, Spotify) as social icons. Use CSS Flexbox to display them in a row with equal spacing using justify-content.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .images
+        {
+            display: flex;
+            margin: auto;
+            justify-content: space-evenly;
+        }
+        .images img
+        {
+            height: 50px;
+            width:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="https://static.vecteezy.com/system/resources/previews/016/716/480/original/whatsapp-icon-free-png.png">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.8qmaT21PFvWTmvTbtAOXhQHaHa?r=0&pid=Api&h=220&P=0">
+        <img src="https://static.vecteezy.com/system/resources/previews/050/816/838/non_2x/zomato-transparent-icon-free-png.png">
+        <img src="https://clipartcraft.com/images/spotify-logo-transparent-icon-2.png">
+    </div>
+</body>
+</html>
+
+2.Build a horizontal playlist bar like Spotify using Flexbox: add 5 song cards with song name and artist, and use align-items to vertically center the text in each card.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Playlist</title>
+
+    <style>
+        .playlist {
+            display: flex;
+            padding: 20px;
+            background-color: black;
+        }
+
+        .song {
+            display: flex;
+            align-items: center;
+            width: 180px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>Spotify Playlist</h1>
+
+    <div class="playlist">
+
+        <div class="song">
+            <p>Perfect<br>Ed Sheeran</p>
+        </div>
+
+        <div class="song">
+            <p>Kesariya<br>Arijit Singh</p>
+        </div>
+
+        <div class="song">
+            <p>Shape of You<br>Ed Sheeran</p>
+        </div>
+
+        <div class="song">
+            <p>Apna Bana Le<br>Arijit Singh</p>
+        </div>
+
+        <div class="song">
+            <p>Believer<br>Imagine Dragons</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+3.Design a Flipkart-style product grid: create a section with 6 product cards (use placeholder images and product names), and use CSS Grid to arrange them in 3 columns and 2 rows.
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .product-grid 
+     { 
+        display: grid;
+         grid-template-columns: repeat(3, 1fr); 
+         grid-template-rows: repeat(2, 1fr); 
+         gap: 20px; 
+         padding: 20px; 
+         } 
+         .product { 
+            padding: 15px; 
+            text-align: center;
+             } 
+         .product img 
+         { 
+            width: 150px; 
+            height: 150px;
+             } 
+     </style>
+</head>
+<body>
+    <h1>Flipkart-style product grid</h1>
+    <section class="productgrid">
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/714mr6GxecL._SL1200_.jpg">
+        <h4>Monitor</h4>
+    </div>
+    <div class="product">
+        <img src="https://img.freepik.com/premium-photo/3d-illustration-computer-pc-cpu-chip-electronics-industry-concept-close-up-view_441797-5633.jpg?w=2000">
+        <h4>CPU</h4>
+    </div>
+    <div class="product">
+        <img src="https://www.lifewire.com/thmb/ZWrSyg6SdQsUkw7XioiLdmF71A0=/1280x1280/filters:no_upscale():max_bytes(150000):strip_icc()/victsing-mouse-5b2c1d08fa6bcc0036b5678d.jpg">
+        <h4>Mouse</h4>
+    </div>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/71qOWNxv4jL.jpg">
+        <h4>Pendrive</h4>
+    </div>
+    <div class="product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hard_Drive_(11644419853).jpg">
+        <h4>Hard Disk</h4>
+    </div>
+    <div class="product">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.xcQ4H-2j7e3v7W8-6VdZlQHaGP?r=0&pid=Api&h=220&P=0">
+        <h4>Printer</h4>
+    </div>
+    </section>
+</body>
+</html>
+
+
+
+4.Make your product grid responsive: use grid-template-columns to show 3 columns on desktop, 2 columns on tablet, and 1 column on mobile screens.<br><br><em><strong>Hint:</strong> Use CSS media queries to change grid-template-columns based on screen width.</em>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product-grid
+        {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+        }
+        .Product
+        {
+           border: 1px solid black;
+            padding: 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Product-Grid</h1>
+    <div class="product-grid">
+        <div class="Product">
+            <h2>smartphone</h2>
+            <p>50,000</p>
+        </div>
+
+        <div class="Product">
+            <h2>Laptop</h2>
+            <p>90,000</p>
+        </div>
+
+        <div class="Product">
+            <h2>Smartwatch</h2>
+            <p>4000</p>
+        </div>
+
+        <div class="Product">
+            <h2>Airbudes</h2>
+            <p>2000</p>
+        </div>
+
+        <div class="Product">
+            <h2>Pendrive</h2>
+            <p>1200</p>
+        </div>
+
+        <div class="Product">
+            <h2>Mouse</h2>
+            <p>500</p>
+        </div>
+
+        
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,285 @@
+1.Create a Flipkart-style product card in HTML and CSS, then use a meta viewport tag to ensure it scales correctly on mobile devices.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flipkart Product Card</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .card
+        {
+            width: 350px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 250px;
+            padding: 200px;
+           border-radius: 3px;
+        }
+        .card img
+        {
+            width: 200px;
+            height:200px;
+        }
+        .name
+        {
+            
+            font-size: 15px;
+        }
+        .price
+        {
+            font-weight: bold;
+            color: green;
+            font-size: 25px;
+        }
+        .button
+        {
+            background-color:blue;
+            border-radius: 5px;
+            color: aliceblue;
+        }
+
+        </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71-TQ1oSm+L._AC_SL1500_.jpg">
+
+        <div class="name">
+            Wireless Earbudes
+        </div>
+
+        <div class="price"> 
+            Price:-2000
+        </div>
+
+        <button class="button">
+            Add to cart
+        </button>
+    </div>
+
+</body>
+</html>
+
+
+2.Add media queries to your product card so that when the screen width is 600px or less, the card layout switches from horizontal (image and details side by side) to vertical (image on top, details below).
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flipkart Product Card</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .card {
+            width: 500px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .card img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .name {
+            font-size: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: green;
+            font-size: 25px;
+            margin: 15px 0;
+        }
+
+        .button {
+            background-color: blue;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+        }
+        @media (max-width: 600px) {
+
+            .card {
+                width: 90%;
+                flex-direction: column;
+                text-align: center;
+                margin: 50px auto;
+            }
+
+            .card img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <img src="https://m.media-amazon.com/images/I/71-TQ1oSm+L._AC_SL1500_.jpg">
+
+        <div>
+            <div class="name">
+                Wireless Earbuds
+            </div>
+
+            <div class="price">
+                Price:- ₹2000
+            </div>
+
+            <button class="button">
+                Add to cart
+            </button>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+3.Set up three breakpoints (600px, 900px, 1200px) for your product card and change the card's font size and padding at each breakpoint to improve readability on different devices.<br><br><em><strong>Hint:</strong> Use @media only screen and (max-width: ...) in your CSS for each breakpoint.</em>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flipkart Product Card</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .card {
+            width: 500px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+            font-size: 16px;
+        }
+
+        .card img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .name {
+            font-size: 15px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: green;
+            font-size: 25px;
+            margin: 15px 0;
+        }
+
+        .button {
+            background-color: blue;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+        }
+        @media only screen and (max-width: 1200px) {
+            .card {
+                padding: 18px;
+                font-size: 15px;
+            }
+        }
+        @media only screen and (max-width: 900px) {
+            .card {
+                padding: 15px;
+                font-size: 14px;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .card {
+                width: 90%;
+                flex-direction: column;
+                text-align: center;
+                margin: 50px auto;
+                padding: 10px;
+                font-size: 13px;
+            }
+            .card img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <img src="https://m.media-amazon.com/images/I/71-TQ1oSm+L._AC_SL1500_.jpg">
+
+        <div>
+            <div class="name">
+                Wireless Earbuds
+            </div>
+
+            <div class="price">
+                Price:- ₹2000
+            </div>
+
+            <button class="button">
+                Add to cart
+            </button>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+4.Test your responsive product card by resizing your browser window and taking screenshots at mobile, tablet, and desktop widths; submit the screenshots along with a short note on what changes at each size.
+
+Mobile View – 600px or less,Image is on top. Text is below.
+
+Tablet View – 601px to 900px,Image and text are side by side.
+
+Desktop View – Above 900px,Image and text are side by side with more space.
+
+
+

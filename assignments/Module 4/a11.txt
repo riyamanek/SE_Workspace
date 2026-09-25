@@ -1,0 +1,146 @@
+1.Create an HTML page that uses Bootstrap utility classes to add 3 different levels of spacing (margin and padding) around a card displaying a Flipkart-style product image and name.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="card m-2 p-2">
+        <img src="https://via.placeholder.com/200" class="card-img-top">
+        <h5 class="card-title">Wireless Headphones</h5>
+    </div>
+    <div class="card m-4 p-4">
+        <img src="https://via.placeholder.com/200" class="card-img-top">
+        <h5 class="card-title">Smart Watch</h5>
+    </div>
+    <div class="card m-5 p-5">
+        <img src="https://via.placeholder.com/200" class="card-img-top">
+        <h5 class="card-title">Laptop</h5>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+2.Build a movie review card (like BookMyShow) using Bootstrap typography utilities to style the movie title, rating, and review text with different font weights and sizes.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Review</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card p-4">
+        <h2 class="display-6 fw-bold">
+            Pritam and Pedro</h2>
+        <h4 class="fw-bold text-success">4.5/5</h4>
+        <p class="fs-5 fw-normal">
+            This movie has a good story and great acting.
+            The movie is entertaining and enjoyable.
+        </p>
+    </div>
+</div>
+</body>
+</html>
+
+
+3.Design a Zomato-style restaurant list where each restaurant card uses at least three different Bootstrap color utility classes to highlight ratings, offers, and open/closed status.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="card p-3 mb-3">
+        <h3>Spicy Spoon</h3>
+        <p class="text-success fw-bold">
+         4.5 Rating
+        </p>
+        <p class="text-danger fw-bold">
+            20% OFF
+        </p>
+        <p class="text-primary fw-bold">
+            Open Now
+        </p>
+    </div>
+    <div class="card p-3 mb-3">
+        <h3>Food Palace</h3>
+        <p class="text-success fw-bold">
+             4.2 Rating
+        </p>
+        <p class="text-warning fw-bold">
+            10% OFF
+        </p>
+        <p class="text-danger fw-bold">
+            Closed
+        </p>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+4.Override the Bootstrap primary button color in your own CSS file to use a custom shade (not the default blue), and apply it to a 'Book Ticket' button on your page.<br><br><em><strong>Hint:</strong> Use the CSS selector .btn-primary in your custom stylesheet and link it after the Bootstrap CSS.</em>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    .btn-primary {
+    background-color: purple;
+    border-color: purple;
+}
+</style>
+<body>
+<div class="container mt-5">
+    <h2>BookMyShow</h2>
+    <button class="btn btn-primary">
+        Book Ticket
+    </button>
+</div>
+</body>
+</html>
+
+5.Add a theme switcher button to your page that toggles between a light and dark background using Bootstrap classes, and updates the text color for readability.<br><br><em><strong>Hint:</strong> Use JavaScript to toggle 'bg-light'/'bg-dark' and 'text-dark'/'text-light' classes on the main container.</em>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Switcher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="main" class="container bg-light text-dark p-5">
+    <h2>Movie Booking</h2>
+    <p>Welcome to BookMyShow</p>
+    <button onclick="changeTheme()" class="btn btn-primary">
+        Change Theme
+    </button>
+</div>
+<script>
+function changeTheme() {
+    let main = document.getElementById("main");
+    main.classList.toggle("bg-light");
+    main.classList.toggle("bg-dark");
+    main.classList.toggle("text-dark");
+    main.classList.toggle("text-light");
+
+}
+</script>
+</body>
+</html>

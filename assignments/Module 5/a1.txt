@@ -1,0 +1,63 @@
+1.Install MySQL Workbench on your computer, connect to the local MySQL server, and take a screenshot of the default databases shown in the Schemas panel.
+
+
+
+2.Create a new database called InstaClone in MySQL Workbench, then create a table named Users with columns: user_id (INT, primary key), username (VARCHAR), email (VARCHAR), and followers_count (INT).
+
+CREATE DATABASE InstaClone
+
+CREATE TABLE Users(
+user_id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50),
+email VARCHAR(60),
+followers_count INT    
+);
+
+3.Insert 3 sample users into the Users table you created, using realistic Instagram-style usernames and follower counts.
+
+INSERT INTO users VALUES
+('1','Riya manek','manekriya4@gmail.com','500'),
+('2','Priya patel','priya12@gmail.com','420'),
+('3','Ruchi Shah','ruchi123@gmail.com','250');
+
+
+4.Create another table in the InstaClone database called Posts with columns: post_id (INT, primary key), user_id (INT), caption (VARCHAR), and post_date (DATE). Add a foreign key from Posts.user_id to Users.user_id to establish a relationship.
+
+CREATE TABLE posts(
+post_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+caption VARCHAR(50),
+post_date DATE,
+INDEX idx_user_id (user_id)    
+);
+
+
+5.Write a short comparison (3-4 lines each) of MySQL, PostgreSQL, Oracle, and SQLite, focusing on where each one is commonly used (for example: web apps, mobile apps, enterprise systems, etc.).
+
+MySQL
+
+MySQL is commonly used for websites and web applications.
+It is popular with PHP, Java, Python and other web technologies.
+It is useful for storing user, product and website data.
+It is also widely used in small and large web projects.
+
+PostgreSQL
+
+PostgreSQL is an advanced open-source database system.
+It is commonly used for web applications and data-heavy applications.
+It supports complex queries and many advanced features.
+It is also used in analytics and large software projects.
+
+Oracle
+
+Oracle Database is commonly used in large enterprise systems.
+Banks, companies and government organizations often use it.
+It supports large amounts of data and complex transactions.
+It is designed for high-performance business applications.
+
+SQLite
+
+SQLite is a small and lightweight database.
+It is commonly used in mobile apps, desktop apps and small applications.
+It does not need a separate database server.
+It is often used in Android and other embedded applications.

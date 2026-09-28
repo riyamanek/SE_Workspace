@@ -1,0 +1,166 @@
+1.Create a static landing page for a music artist using HTML and CSS, featuring their profile image, a short bio, and three social media buttons styled with Bootstrap icons.
+
+2.Use Bootstrap's grid system to arrange three featured playlists (like Spotify) in a responsive row, each with a cover image, playlist name, and a 'Listen Now' button.
+
+3.Design a Flipkart-style product showcase section with four product cards in a row using Bootstrap card components, ensuring the layout collapses to two cards per row on mobile screens.<br><br><em><strong>Hint:</strong> Use Bootstrap's col-md-3 and col-6 classes for responsiveness.</em>
+
+4.Refactor your landing page to include a sticky navigation bar at the top using Bootstrap's navbar component, with links to Home, About, and Contact sections.
+
+5.Add a footer to your page with Instagram-style social icons and ensure the entire layout remains visually cohesive by applying a consistent color scheme using Bootstrap utility classes.
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#11130f">
+    <meta name="description" content="The official bio link page for indie artist Nova Lane.">
+    <title>Nova Lane — Music, Merch & More</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body class="bg-ink text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav">
+      <div class="container">
+        <a class="navbar-brand brand-mark" href="#home" aria-label="Nova Lane home">NOVA<span class="text-lime">.</span></a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4 py-3 py-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <div class="col-lg-6 order-2 order-lg-1">
+              <p class="eyebrow mb-3"><span class="live-dot"></span> INDEPENDENT ARTIST · LOS ANGELES</p>
+              <h1 class="display-title">A little lost.<br><span class="text-lime">A lot of feeling.</span></h1>
+              <p class="hero-copy mt-4 mb-4">Songs for the late drives, the almost-texts, and every new beginning. Come find your next favorite.</p>
+              <div class="d-flex flex-wrap gap-2 social-actions">
+                <a class="btn btn-lime" href="https://open.spotify.com/" target="_blank" rel="noreferrer"><i class="bi bi-spotify me-2"></i>Spotify</a>
+                <a class="btn btn-outline-light" href="https://www.instagram.com/" target="_blank" rel="noreferrer"><i class="bi bi-instagram me-2"></i>Instagram</a>
+                <a class="btn btn-outline-light" href="https://www.youtube.com/" target="_blank" rel="noreferrer"><i class="bi bi-youtube me-2"></i>YouTube</a>
+              </div>
+              <a class="scroll-cue d-inline-flex align-items-center gap-2 mt-5" href="#playlists"><span class="scroll-line"></span> SCROLL TO EXPLORE</a>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+              <div class="portrait-wrap">
+                <img class="artist-portrait" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1100&q=85" alt="Nova Lane in warm evening light">
+                <div class="portrait-stamp"><span>NEW SINGLE</span><strong>GOLDEN<br>HOUR</strong><i class="bi bi-arrow-up-right"></i></div>
+                <div class="portrait-caption">NOVA LANE <span>— 2025</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-strip py-4">
+        <div class="container">
+          <div class="row align-items-center g-3">
+            <div class="col-md-2"><span class="section-kicker">THE SHORT VERSION</span></div>
+            <div class="col-md-10"><p class="mb-0 about-copy">Nova Lane makes <strong>sun-drenched indie pop</strong> with a soft spot for big feelings. Her new EP, <em>Somewhere, Somehow</em>, is out now.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="playlists" class="section-pad">
+        <div class="container">
+          <div class="section-heading d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+            <div><p class="eyebrow mb-2">TUNED TO YOUR MOOD</p><h2 class="section-title mb-0">Pick your soundtrack<span class="text-lime">.</span></h2></div>
+            <a class="text-link" href="https://open.spotify.com/" target="_blank" rel="noreferrer">ALL PLAYLISTS <i class="bi bi-arrow-up-right ms-1"></i></a>
+          </div>
+          <div class="row g-3 g-lg-4">
+            <div class="col-md-4">
+              <article class="playlist-card h-100">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=80" alt="Crowd beneath colorful concert lights">
+                <div class="playlist-overlay"></div>
+                <div class="playlist-content"><span class="playlist-label">THE LATE NIGHT SET</span><h3>After Hours</h3><a href="https://open.spotify.com/" target="_blank" rel="noreferrer" class="btn btn-sm btn-light rounded-pill px-3">Listen Now <i class="bi bi-play-fill ms-1"></i></a></div>
+                <span class="playlist-number">01</span>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="playlist-card h-100">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Sun setting over a quiet landscape">
+                <div class="playlist-overlay"></div>
+                <div class="playlist-content"><span class="playlist-label">SOFT-FOCUS FEELINGS</span><h3>Golden Hour</h3><a href="https://open.spotify.com/" target="_blank" rel="noreferrer" class="btn btn-sm btn-light rounded-pill px-3">Listen Now <i class="bi bi-play-fill ms-1"></i></a></div>
+                <span class="playlist-number">02</span>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="playlist-card h-100">
+                <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80" alt="Stars scattered across a night sky">
+                <div class="playlist-overlay"></div>
+                <div class="playlist-content"><span class="playlist-label">FOR THE WAY BACK</span><h3>Window Seat</h3><a href="https://open.spotify.com/" target="_blank" rel="noreferrer" class="btn btn-sm btn-light rounded-pill px-3">Listen Now <i class="bi bi-play-fill ms-1"></i></a></div>
+                <span class="playlist-number">03</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="shop" class="shop-section section-pad">
+        <div class="container">
+          <div class="section-heading d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+            <div><p class="eyebrow mb-2">A PIECE OF THE TOUR</p><h2 class="section-title mb-0">The little shop<span class="text-lime">.</span></h2></div>
+            <a class="text-link" href="#contact">VIEW ALL MERCH <i class="bi bi-arrow-up-right ms-1"></i></a>
+          </div>
+          <div class="row g-3 g-lg-4">
+            <div class="col-6 col-md-3">
+              <article class="card merch-card h-100">
+                <div class="merch-image"><span class="merch-tag">BESTSELLER</span><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="White tour t-shirt"></div>
+                <div class="card-body"><p class="merch-type">APPAREL</p><h3 class="card-title">Somewhere Tee</h3><div class="d-flex justify-content-between align-items-center"><span class="merch-price">$32</span><a href="#contact" class="btn btn-outline-light btn-sm rounded-pill">Shop <i class="bi bi-arrow-up-right"></i></a></div></div>
+              </article>
+            </div>
+            <div class="col-6 col-md-3">
+              <article class="card merch-card h-100">
+                <div class="merch-image"><img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Vinyl record and album sleeve"></div>
+                <div class="card-body"><p class="merch-type">VINYL</p><h3 class="card-title">Somewhere, Somehow</h3><div class="d-flex justify-content-between align-items-center"><span class="merch-price">$28</span><a href="#contact" class="btn btn-outline-light btn-sm rounded-pill">Shop <i class="bi bi-arrow-up-right"></i></a></div></div>
+              </article>
+            </div>
+            <div class="col-6 col-md-3">
+              <article class="card merch-card h-100">
+                <div class="merch-image"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Black embroidered baseball cap"></div>
+                <div class="card-body"><p class="merch-type">ACCESSORIES</p><h3 class="card-title">Daydream Cap</h3><div class="d-flex justify-content-between align-items-center"><span class="merch-price">$26</span><a href="#contact" class="btn btn-outline-light btn-sm rounded-pill">Shop <i class="bi bi-arrow-up-right"></i></a></div></div>
+              </article>
+            </div>
+            <div class="col-6 col-md-3">
+              <article class="card merch-card h-100">
+                <div class="merch-image"><img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="Minimal fragrance bottle"></div>
+                <div class="card-body"><p class="merch-type">EXTRAS</p><h3 class="card-title">Golden Hour Zine</h3><div class="d-flex justify-content-between align-items-center"><span class="merch-price">$14</span><a href="#contact" class="btn btn-outline-light btn-sm rounded-pill">Shop <i class="bi bi-arrow-up-right"></i></a></div></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-md-5"><a class="navbar-brand brand-mark" href="#home">NOVA<span class="text-lime">.</span></a><p class="footer-note mb-0 mt-2">Keep a little music with you.</p></div>
+          <div class="col-md-4"><p class="footer-label mb-2">SAY HELLO</p><a class="footer-email" href="mailto:hello@novalane.music">hello@novalane.music</a></div>
+          <div class="col-md-3 text-md-end"><p class="footer-label mb-2">FOLLOW ALONG</p><div class="footer-social d-flex gap-2 justify-content-md-end">
+            <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noreferrer"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.tiktok.com/" aria-label="TikTok" target="_blank" rel="noreferrer"><i class="bi bi-tiktok"></i></a>
+            <a href="https://www.youtube.com/" aria-label="YouTube" target="_blank" rel="noreferrer"><i class="bi bi-youtube"></i></a>
+          </div></div>
+        </div>
+        <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2 mt-5 pt-3"><span>© 2025 NOVA LANE. ALL GOOD THINGS RESERVED.</span><a href="#home">BACK TO TOP ↑</a></div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

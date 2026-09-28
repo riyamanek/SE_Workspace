@@ -1,0 +1,755 @@
+“Social Bio Link Page – UI Design”Objective: Build a personal bio link page (links to Instagram, LinkedIn, Spotify, etc.) with responsive design.Trainer Notes: Guide students to implement a form that accepts link inputs and shows preview cards.
+Pending
+
+1.Create an HTML form called musicLinksForm that accepts Spotify, YouTube Music, and Apple Music profile URLs as input fields, and display the submitted links as styled preview cards below the form.
+2.Design a responsive UI for a personal 'Gamer Tag' bio link page that adapts to both mobile and desktop screens, showing the user's avatar, gaming alias, and buttons linking to their Twitch, Discord, and Steam profiles.<br><br><em><strong>Hint:</strong> Use CSS Flexbox or Grid for layout and media queries for responsiveness.</em>
+3.Style the input form for adding social links so that each input field displays a platform icon (Instagram, LinkedIn, etc.) inside the input box, similar to how Zomato shows icons in their search bar.<br><br><em><strong>Hint:</strong> Use background-image or position an <img> inside the input with CSS.</em>
+4.After submitting the form, show a preview card for each link with the platform logo, the username/handle extracted from the URL, and a 'Visit' button that opens the link in a new tab.<br><br><em><strong>Constraint:</strong> The preview cards must look visually distinct for each platform (different colors or borders).</em>
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0e16">
+  <title>Your Bio Link Page</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0c0e16;
+      --panel: #131622;
+      --panel-raised: #191d2c;
+      --line: #292d3d;
+      --text: #f5f5fb;
+      --muted: #979caf;
+      --lime: #c8ff5f;
+      --violet: #9b83ff;
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 0%, rgb(113 86 255 / 12%), transparent 34rem),
+        radial-gradient(ellipse at 94% 38%, rgb(200 255 95 / 6%), transparent 27rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button, input { font: inherit; }
+    a { color: inherit; }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 30px 0 56px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 31px;
+      height: 31px;
+      place-items: center;
+      border-radius: 10px;
+      color: #10120e;
+      background: var(--lime);
+      font-size: 1rem;
+    }
+
+    .live-pill, .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .live-pill {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      letter-spacing: .04em;
+      text-transform: none;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 12px rgb(200 255 95 / 75%);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .profile-card, .loadout-card, .form-panel, .preview-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgb(24 27 41 / 96%), rgb(17 19 30 / 96%));
+      box-shadow: 0 22px 70px rgb(0 0 0 / 18%);
+    }
+
+    .profile-card {
+      position: relative;
+      display: flex;
+      min-height: 305px;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 30px;
+      background:
+        radial-gradient(ellipse at 85% 5%, rgb(155 131 255 / 22%), transparent 48%),
+        linear-gradient(145deg, #1b1e2d, #12141f 76%);
+    }
+
+    .profile-card::after {
+      position: absolute;
+      right: -68px;
+      bottom: -164px;
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgb(200 255 95 / 12%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 34px rgb(200 255 95 / 3%), 0 0 0 68px rgb(200 255 95 / 2%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .profile-top, .profile-bottom { position: relative; z-index: 1; }
+    .profile-top { display: flex; align-items: flex-start; gap: 20px; }
+
+    .avatar {
+      display: grid;
+      width: 86px;
+      height: 86px;
+      flex: 0 0 86px;
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / 19%);
+      border-radius: 25px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #a18aff, #4c387e);
+      box-shadow: 0 10px 28px rgb(123 93 225 / 28%);
+      font-size: 2.6rem;
+    }
+
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .profile-copy { padding-top: 3px; }
+    .profile-copy .eyebrow { margin: 0 0 5px; color: var(--lime); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -.065em;
+      line-height: 1.05;
+    }
+
+    .alias {
+      margin: 6px 0 0;
+      color: #c2c5d3;
+      font-size: .96rem;
+      font-weight: 600;
+    }
+
+    .bio {
+      max-width: 450px;
+      margin: 24px 0 20px;
+      color: #b2b6c7;
+      font-size: .94rem;
+    }
+
+    .profile-links { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .profile-link {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 15px;
+      border: 1px solid #35394b;
+      border-radius: 12px;
+      background: rgb(255 255 255 / 4%);
+      font-size: .84rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+
+    .profile-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--lime);
+      background: rgb(200 255 95 / 8%);
+    }
+
+    .profile-link .service-icon { font-size: 1rem; }
+
+    .loadout-card { padding: 24px; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-label .eyebrow { margin: 0; }
+    .section-index { color: #62687e; font-size: .76rem; font-weight: 700; }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat-name { color: var(--muted); font-size: .86rem; }
+    .stat-value { font-size: .9rem; font-weight: 750; }
+    .rank { color: var(--lime); }
+    .stat-value.online { display: inline-flex; align-items: center; gap: 7px; }
+    .online .live-dot { width: 6px; height: 6px; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .form-panel, .preview-panel { min-height: 370px; padding: 25px; }
+
+    h2 {
+      margin: 0;
+      font-size: 1.08rem;
+      letter-spacing: -.02em;
+    }
+
+    .panel-description {
+      margin: 5px 0 20px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .link-form { display: grid; gap: 13px; }
+
+    .field { display: grid; gap: 7px; }
+
+    .field label {
+      color: #c8cada;
+      font-size: .79rem;
+      font-weight: 700;
+    }
+
+    .input-wrap { position: relative; }
+
+    .input-icon {
+      position: absolute;
+      top: 50%;
+      left: 13px;
+      display: grid;
+      width: 23px;
+      height: 23px;
+      place-items: center;
+      border-radius: 7px;
+      color: var(--icon-color);
+      background: color-mix(in srgb, var(--icon-color) 15%, transparent);
+      font-size: .77rem;
+      font-weight: 850;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .field input {
+      width: 100%;
+      height: 46px;
+      padding: 0 13px 0 46px;
+      border: 1px solid #303447;
+      border-radius: 12px;
+      outline: none;
+      color: var(--text);
+      background: #0f111b;
+      font-size: .82rem;
+      transition: border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .field input::placeholder { color: #62687b; }
+    .field input:focus { border-color: var(--violet); box-shadow: 0 0 0 3px rgb(155 131 255 / 14%); }
+    .field input[type="file"] { height: auto; padding: 10px 12px; }
+
+    .submit-button {
+      display: flex;
+      min-height: 47px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 3px;
+      border: 0;
+      border-radius: 12px;
+      color: #12150c;
+      background: var(--lime);
+      cursor: pointer;
+      font-weight: 850;
+      transition: filter .18s ease, transform .18s ease;
+    }
+
+    .submit-button:hover { filter: brightness(1.07); transform: translateY(-1px); }
+    .submit-button:focus-visible, .profile-link:focus-visible, .visit-button:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 3px;
+    }
+
+    .form-message {
+      min-height: 1.25em;
+      margin: -5px 0 0;
+      color: #ff9aab;
+      font-size: .78rem;
+    }
+
+    .form-message.success { color: var(--lime); }
+    .form-message:empty { display: none; }
+
+    .preview-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .card-count { color: var(--muted); font-size: .76rem; font-weight: 700; }
+
+    .preview-list { display: grid; gap: 10px; }
+
+    .empty-state {
+      display: grid;
+      min-height: 250px;
+      place-content: center;
+      justify-items: center;
+      padding: 24px;
+      border: 1px dashed #35394b;
+      border-radius: 16px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .empty-icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 12px;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--lime);
+      background: rgb(200 255 95 / 9%);
+      font-size: 1.2rem;
+    }
+
+    .empty-state strong { margin-bottom: 4px; color: #d8d9e3; font-size: .9rem; }
+    .empty-state span:last-child { max-width: 230px; font-size: .8rem; }
+
+    .preview-card {
+      --accent: var(--violet);
+      display: grid;
+      grid-template-columns: 43px minmax(0, 1fr) auto;
+      min-height: 76px;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid color-mix(in srgb, var(--accent) 40%, #292d3d);
+      border-left: 3px solid var(--accent);
+      border-radius: 14px;
+      background: linear-gradient(100deg, color-mix(in srgb, var(--accent) 9%, #171a27), #151824 60%);
+      animation: reveal .24s ease both;
+    }
+
+    .preview-logo {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 15%, #171a27);
+      font-size: .9rem;
+      font-weight: 900;
+    }
+
+    .preview-info { min-width: 0; }
+    .preview-platform { display: block; font-size: .84rem; font-weight: 800; }
+    .preview-handle {
+      display: block;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: .76rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .visit-button {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0 10px;
+      border: 1px solid color-mix(in srgb, var(--accent) 48%, #34384b);
+      border-radius: 9px;
+      color: var(--text);
+      background: color-mix(in srgb, var(--accent) 10%, #161925);
+      font-size: .75rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: background .18s ease;
+    }
+
+    .visit-button:hover { background: color-mix(in srgb, var(--accent) 22%, #161925); }
+
+    .footer-note {
+      margin: 19px 0 0;
+      color: #686e81;
+      font-size: .74rem;
+      text-align: center;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: min(560px, calc(100% - 28px)); padding-top: 18px; }
+      .topbar { margin-bottom: 18px; }
+      .hero, .content-grid { grid-template-columns: 1fr; }
+      .hero { gap: 12px; margin-bottom: 12px; }
+      .content-grid { gap: 12px; }
+      .profile-card { min-height: 285px; padding: 24px; }
+      .loadout-card { padding: 19px 22px 10px; }
+      .form-panel, .preview-panel { min-height: 0; padding: 21px; }
+    }
+
+    @media (max-width: 420px) {
+      .shell { width: calc(100% - 22px); }
+      .live-pill { padding: 7px 9px; font-size: .7rem; }
+      .brand { font-size: .78rem; }
+      .profile-card { min-height: 305px; padding: 20px; }
+      .profile-top { gap: 14px; }
+      .avatar { width: 68px; height: 68px; flex-basis: 68px; border-radius: 20px; font-size: 2.15rem; }
+      .profile-copy .eyebrow { font-size: .66rem; }
+      h1 { font-size: 2.2rem; }
+      .bio { margin: 20px 0 16px; font-size: .88rem; }
+      .profile-link { min-height: 40px; padding: 0 12px; font-size: .79rem; }
+      .preview-card { grid-template-columns: 38px minmax(0, 1fr) auto; gap: 9px; padding: 10px; }
+      .preview-logo { width: 36px; height: 36px; }
+      .visit-button { padding: 0 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Your bio link page">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>LINKSPACE</span>
+      </a>
+      <span class="live-pill"><span class="live-dot" aria-hidden="true"></span> Your corner of the internet</span>
+    </header>
+
+    <section class="hero" aria-label="Your profile preview">
+      <article class="profile-card">
+        <div class="profile-top">
+          <div class="avatar" id="profileAvatar" role="img" aria-label="Default profile picture">✦</div>
+          <div class="profile-copy">
+            <p class="eyebrow">A little more you, everywhere</p>
+            <h1 id="profileName">Your name</h1>
+            <p class="alias" id="profileHandle">Your social bio starts here</p>
+          </div>
+        </div>
+        <div class="profile-bottom">
+          <p class="bio" id="profileBio">Add your photo, a few words about yourself, and your favorite links below.</p>
+          <nav class="profile-links" id="profileLinks" aria-label="Social profiles">
+          </nav>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-grid" aria-label="Profile editor and link preview">
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="section-label">
+          <p class="eyebrow">Make it yours</p>
+          <span class="section-index">01 / 02</span>
+        </div>
+        <h2 id="form-title">Build your profile</h2>
+        <p class="panel-description">Add your details and links, then submit to update your page preview.</p>
+
+        <form class="link-form" id="profileForm">
+          <div class="field">
+            <label for="displayName">Name</label>
+            <div class="input-wrap">
+              <span class="input-icon" style="--icon-color:#c8ff5f" aria-hidden="true">✦</span>
+              <input id="displayName" name="displayName" type="text" autocomplete="name" maxlength="50" placeholder="Your name" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="username">Username <span style="color:var(--muted);font-weight:500">(optional)</span></label>
+            <div class="input-wrap">
+              <span class="input-icon" style="--icon-color:#9b83ff" aria-hidden="true">@</span>
+              <input id="username" name="username" type="text" autocomplete="nickname" maxlength="30" placeholder="yourname">
+            </div>
+          </div>
+          <div class="field">
+            <label for="bioInput">About you <span style="color:var(--muted);font-weight:500">(optional)</span></label>
+            <div class="input-wrap">
+              <span class="input-icon" style="--icon-color:#9b83ff" aria-hidden="true">✎</span>
+              <input id="bioInput" name="bio" type="text" maxlength="180" placeholder="A short intro, what you do, or what you love">
+            </div>
+          </div>
+          <div class="field">
+            <label for="profilePhoto">Profile picture <span style="color:var(--muted);font-weight:500">(optional, up to 5 MB)</span></label>
+            <input id="profilePhoto" name="profilePhoto" type="file" accept="image/*">
+          </div>
+          <div class="field">
+            <label for="spotify">Spotify</label>
+            <div class="input-wrap">
+              <span class="input-icon" style="--icon-color:#1ed760" aria-hidden="true">◖</span>
+              <input id="spotify" name="spotify" type="url" inputmode="url" autocomplete="url" placeholder="https://open.spotify.com/user/you">
+            </div>
+          </div>
+          <div class="field">
+            <label for="instagram">Instagram</label>
+            <div class="input-wrap">
+              <span class="input-icon" style="--icon-color:#f28cce" aria-hidden="true">◎</span>
+              <input id="instagram" name="instagram" type="url" inputmode="url" autocomplete="url" placeholder="https://instagram.com/you">
+            </div>
+          </div>
+          <div class="field">
+            <label for="linkedin">LinkedIn</label>
+            <div class="input-wrap">
+              <span class="input-icon" style="--icon-color:#62a9ff" aria-hidden="true">in</span>
+              <input id="linkedin" name="linkedin" type="url" inputmode="url" autocomplete="url" placeholder="https://linkedin.com/in/you">
+            </div>
+          </div>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          <button class="submit-button" type="submit"><span aria-hidden="true">↗</span> Create my profile page</button>
+        </form>
+      </section>
+
+      <section class="preview-panel" aria-labelledby="preview-title">
+        <div class="section-label">
+          <p class="eyebrow">Profile links</p>
+          <span class="section-index">02 / 02</span>
+        </div>
+        <div class="preview-heading">
+          <h2 id="preview-title">Your link cards</h2>
+          <span class="card-count" id="cardCount">0 links</span>
+        </div>
+        <p class="panel-description">These clickable cards will appear on your profile page.</p>
+        <div class="preview-list" id="previewList" aria-live="polite" aria-relevant="additions removals">
+          <div class="empty-state" id="emptyState">
+            <span class="empty-icon" aria-hidden="true">↗</span>
+            <strong>Your links will show up here</strong>
+            <span>Add at least one Instagram, LinkedIn, or Spotify URL to create your profile.</span>
+          </div>
+        </div>
+        <p class="footer-note">Your profile preview appears above. External links open in a new tab.</p>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector("#profileForm");
+    const previewList = document.querySelector("#previewList");
+    const cardCount = document.querySelector("#cardCount");
+    const formMessage = document.querySelector("#formMessage");
+    const profileName = document.querySelector("#profileName");
+    const profileHandle = document.querySelector("#profileHandle");
+    const profileBio = document.querySelector("#profileBio");
+    const profileAvatar = document.querySelector("#profileAvatar");
+    const profileLinks = document.querySelector("#profileLinks");
+    let avatarObjectUrl = null;
+
+    const platforms = [
+      { name: "Spotify", input: "spotify", accent: "#1ed760", mark: "◖", hosts: ["spotify.com"] },
+      { name: "Instagram", input: "instagram", accent: "#f28cce", mark: "◎", hosts: ["instagram.com"] },
+      { name: "LinkedIn", input: "linkedin", accent: "#62a9ff", mark: "in", hosts: ["linkedin.com"] }
+    ];
+
+    function parseProfileUrl(value, allowedHosts) {
+      let url;
+      try {
+        url = new URL(value);
+      } catch {
+        return null;
+      }
+
+      const hostname = url.hostname.toLowerCase().replace(/^www\./, "");
+      const isAllowedHost = allowedHosts.some((host) => hostname === host || hostname.endsWith(`.${host}`));
+      if (!isAllowedHost || !["http:", "https:"].includes(url.protocol) || url.username || url.password) return null;
+      return url;
+    }
+
+    function getHandle(url) {
+      const segments = url.pathname.split("/").filter(Boolean);
+      const ignoredSegments = new Set(["user", "artist", "channel", "c", "profile", "in", "intl-en", "us"]);
+      const handle = [...segments].reverse().find((segment) => !ignoredSegments.has(segment.toLowerCase()));
+      if (!handle) return url.hostname.replace(/^www\./, "");
+      try {
+        return `@${decodeURIComponent(handle).replace(/^@/, "")}`;
+      } catch {
+        return `@${handle.replace(/^@/, "")}`;
+      }
+    }
+
+    function makePreviewCard(platform, url) {
+      const card = document.createElement("article");
+      card.className = "preview-card";
+      card.style.setProperty("--accent", platform.accent);
+
+      const logo = document.createElement("span");
+      logo.className = "preview-logo";
+      logo.setAttribute("aria-hidden", "true");
+      logo.textContent = platform.mark;
+
+      const info = document.createElement("div");
+      info.className = "preview-info";
+      const title = document.createElement("span");
+      title.className = "preview-platform";
+      title.textContent = platform.name;
+      const handle = document.createElement("span");
+      handle.className = "preview-handle";
+      handle.textContent = getHandle(url);
+      info.append(title, handle);
+
+      const visit = document.createElement("a");
+      visit.className = "visit-button";
+      visit.href = url.href;
+      visit.target = "_blank";
+      visit.rel = "noopener noreferrer";
+      visit.textContent = "Visit ↗";
+      visit.setAttribute("aria-label", `Visit ${platform.name} profile ${getHandle(url)} in a new tab`);
+
+      card.append(logo, info, visit);
+      return card;
+    }
+
+    function makeProfileLink(platform, url) {
+      const link = document.createElement("a");
+      link.className = "profile-link";
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", `Visit ${platform.name} profile in a new tab`);
+
+      const icon = document.createElement("span");
+      icon.className = "service-icon";
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = platform.mark;
+      link.append(icon, document.createTextNode(` ${platform.name}`));
+      return link;
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      formMessage.textContent = "";
+      formMessage.classList.remove("success");
+
+      const entries = platforms
+        .map((platform) => ({
+          platform,
+          value: form.elements[platform.input].value.trim()
+        }))
+        .filter(({ value }) => value !== "");
+
+      if (entries.length === 0) {
+        formMessage.textContent = "Add at least one Instagram, LinkedIn, or Spotify URL to create your profile.";
+        return;
+      }
+
+      const invalid = entries.find(({ platform, value }) => !parseProfileUrl(value, platform.hosts));
+      if (invalid) {
+        formMessage.textContent = `Enter a valid ${invalid.platform.name} profile URL (including https://).`;
+        form.elements[invalid.platform.input].focus();
+        return;
+      }
+
+      const photoInput = form.elements.profilePhoto;
+      const photo = photoInput.files[0];
+      if (photo && !photo.type.startsWith("image/")) {
+        formMessage.textContent = "Choose an image file for your profile picture.";
+        photoInput.focus();
+        return;
+      }
+      if (photo && photo.size > 5 * 1024 * 1024) {
+        formMessage.textContent = "Your profile picture must be 5 MB or smaller.";
+        photoInput.focus();
+        return;
+      }
+
+      const name = form.elements.displayName.value.trim();
+      const username = form.elements.username.value.trim().replace(/^@/, "");
+      const bio = form.elements.bio.value.trim();
+      const fragment = document.createDocumentFragment();
+      const profileFragment = document.createDocumentFragment();
+      for (const { platform, value } of entries) {
+        const url = parseProfileUrl(value, platform.hosts);
+        fragment.append(makePreviewCard(platform, url));
+        profileFragment.append(makeProfileLink(platform, url));
+      }
+      previewList.replaceChildren(fragment);
+      profileLinks.replaceChildren(profileFragment);
+      cardCount.textContent = `${entries.length} ${entries.length === 1 ? "link" : "links"}`;
+      profileName.textContent = name;
+      profileHandle.textContent = username ? `@${username}` : "";
+      profileBio.textContent = bio || "Find me around the web.";
+      profileAvatar.setAttribute("aria-label", `${name}'s profile picture`);
+      if (photo) {
+        if (avatarObjectUrl) URL.revokeObjectURL(avatarObjectUrl);
+        avatarObjectUrl = URL.createObjectURL(photo);
+        const image = document.createElement("img");
+        image.src = avatarObjectUrl;
+        image.alt = "";
+        profileAvatar.replaceChildren(image);
+      } else if (!avatarObjectUrl) {
+        profileAvatar.textContent = name.charAt(0).toUpperCase();
+      }
+      document.title = `${name} — Bio Link Page`;
+      formMessage.textContent = "Your profile page is ready in the preview above.";
+      formMessage.classList.add("success");
+      document.querySelector(".profile-card").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  </script>
+</body>
+</html>

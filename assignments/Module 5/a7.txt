@@ -1,0 +1,53 @@
+1.Create a table called Restaurant with columns: id, name, location, and cuisine. Apply NOT NULL constraint to name and location, and make id the PRIMARY KEY.
+
+CREATE TABLE Restaurant(
+id int AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255),
+location VARCHAR(255),
+cuisine VARCHAR(255)    
+);
+
+
+
+2.Create a table called FoodOrder with columns: order_id, restaurant_id, user_id, and order_total. Set order_id as PRIMARY KEY, and add a FOREIGN KEY constraint on restaurant_id referencing Restaurant(id).
+
+CREATE TABLE Foodorder(
+order_id int AUTO_INCREMENT PRIMARY KEY,
+restaurant_id int,
+user_id int,
+order_total DECIMAL(2,1),
+FOREIGN KEY (restaurant_id) REFERENCES Restaurant(id)  
+);
+
+
+3.Insert 6 rows into a table called SpotifyUser with columns: user_id, username, email, and subscription_type. Ensure that username is UNIQUE and email is NOT NULL.<br><br><em><strong>Hint:</strong> Use the UNIQUE and NOT NULL constraints when creating the table.</em>
+
+
+CREATE TABLE spotifyuser (
+user_id int PRIMARY KEY,
+username VARCHAR(255),
+email VARCHAR(255) NOT NULL,
+subscription_type VARCHAR(255)    
+);
+
+INSERT INTO SpotifyUser VALUES
+(1, 'riya', 'riya@gmail.com', 'Premium'),
+(2, 'rahul', 'rahul@gmail.com', 'Free'),
+(3, 'neha', 'neha@gmail.com', 'Premium'),
+(4, 'jay', 'jay@gmail.com', 'Premium'),
+(5, 'priya', 'priya@gmail.com', 'Free'),
+(6, 'amit', 'amit@gmail.com', 'Premium');
+
+
+4.Create a VIEW named TopSpendersView that shows usernames and order_total from a FoodOrder table where order_total is greater than 1000.
+
+CREATE VIEW TopspendersView AS
+SELECT spotifyuser.username,foodorder.order_total
+FROM foodorder JOIN spotifyuser
+ON foodorder.user_id=spotifyuser.user_id
+WHERE foodorder.order_total>1000;
+
+
+5.Write a SQL query to list all users from the TopSpendersView who have spent more than 2000, sorted by order_total descending.<br><br><em><strong>Constraint:</strong> Only use the TopSpendersView for your query, not the original FoodOrder table.</em>
+
+SELECT username,order_total FROM topspendersview where order_total>2000 ORDER BY order_total DESC;

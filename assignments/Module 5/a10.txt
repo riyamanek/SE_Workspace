@@ -1,0 +1,46 @@
+1.Create a MySQL table called playlists to store Spotify-style music playlists, with columns: playlist_id (primary key), user_id (foreign key), name (varchar), and created_at (datetime). Write the CREATE TABLE statement.
+
+create table SpotifyUser (
+    user_id INT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    email VARCHAR(100) NOT NULL,
+    subscription_type VARCHAR(20)
+);
+create table playlists(
+playlist_id int primary key,
+user_id int,
+name varchar(50),
+created_at datetime,
+foregign key (user_id)references SpotifyUser(user_id)
+);
+
+2.Insert three sample records into the playlists table: one for a user with a 'Workout Mix', one with a 'Chill Vibes', and one with a 'Top Hits' playlist. Use realistic data for each field.
+
+INSERT INTO SpotifyUser VALUES
+(101, 'riya', 'riya@gmail.com', 'Premium'),
+(102, 'neha', 'neha@gmail.com', 'Free'),
+(103, 'priya', 'priya@gmail.com', 'Premium');
+INSERT INTO playlists VALUES
+(1, 101, 'Workout Mix', '2026-10-01 08:00:00'),
+(2, 102, 'Chill Vibes', '2026-10-02 19:30:00'),
+(3, 103, 'Top Hits', '2026-10-03 12:00:00');
+
+3.Write an SQL UPDATE statement to rename the 'Chill Vibes' playlist to 'Evening Chill' for a specific user_id.
+
+UPDATE playlists set name='Evening Chill' where user_id=102;
+
+4.Write a DELETE statement to remove a playlist named 'Workout Mix' for a given user_id from the playlists table.<br><br><em><strong>Hint:</strong> Make sure your WHERE clause targets only the intended row.</em>
+
+DELETE FROM playlists where user_id=101 AND name='Workout Mix';
+
+5.Create a stored procedure named GetMonthlyPlaylistCount that takes a user_id and a month (as an integer) as input, and returns the total number of playlists the user created in that month.<br><br><em><strong>Hint:</strong> Use the MONTH() function in your WHERE clause.</em>
+
+DELIMITER //
+create PROCEDURE GetMonthlyPlaylistCount
+(IN p_user_id int,IN p_month int)
+begin
+select count(*)AS total_playlists from playlists
+where user_id=p_user_id AND month(created_at)=p_month;
+end //
+DELIMITER ;
+call  GetMonthlyPlaylistCount(101,10);

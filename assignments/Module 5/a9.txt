@@ -1,0 +1,107 @@
+1.Create a SQL script to insert a new order into an Orders table, then use COMMIT to save the transaction and verify that the new order persists after reconnecting to the database.
+
+CREATE TABLE ORDERS(
+ORDER_ID INT primary KEY,
+USER_ID INT,
+ORDER_TOTAL DECIMAL(10,2)
+);
+
+start transaction;
+INSERT INTO ORDERS VALUES(101,1,500);
+COMMIT;
+
+SELECT*FROM ORDERS
+WHERE ORDER_ID=101
+
+2.Simulate a Zomato-style food order process: insert two new items into an OrderItems table, then use ROLLBACK to undo the changes before committing. Check that no new items remain in the table after rollback.
+
+create table orderitems(
+ item_id INT PRIMARY KEY,
+ order_id INT,
+ item_name VARCHAR(50),
+ quantity INT,
+ price DECIMAL(10,2)
+);
+
+start transaction;
+insert into orderitems values
+(1,101,'pizza',1,250.00),
+(2,101,'burger',2,300.00);
+rollback;
+
+3.In a Flipkart-like shopping cart scenario, use SAVEPOINT to mark a point after adding a product to the Cart table, add another product, then use ROLLBACK TO SAVEPOINT to undo only the last addition. Show the final contents of the Cart table.
+
+CREATE TABLE Cart (
+    cart_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    quantity INT,
+    price DECIMAL(10,2)
+);
+
+start transaction;
+insert into Cart values
+(1,'laptop',1,50000.00);
+savepoint c1;
+
+insert into Cart values
+(2,'mouse',1,1000.00);
+rollback to savepoint c1;
+
+select*from cart
+
+
+4.Write a trigger on a Wallet table that automatically deducts the purchase amount from the user's balance whenever a new transaction is inserted, similar to how Paytm updates wallet balance after a payment.
+
+CREATE TABLE Wallet (
+    user_id INT PRIMARY KEY,
+    balance DECIMAL(10,2)
+);
+INSERT INTO Wallet VALUES (101, 5000.00);
+
+CREATE TABLE Transactions (
+    transaction_id INT PRIMARY KEY,
+    user_id INT,
+    purchase_amount DECIMAL(10,2)
+);
+
+DELIMITER //
+CREATE TRIGGER deduct_balance
+AFTER INSERT ON Transactions FOR EACH ROW
+BEGIN
+update wallet set balance=balance-new.purchase_amount
+where user_id=new.user_id;
+END //
+DELIMITER ;
+
+INSERT INTO Transactions
+VALUES (1, 101, 1200.00);
+
+select*from wallet
+
+5.Use ChatGPT to generate a SQL test scenario where a trigger incorrectly updates a user's balance after an expense entry. Paste the scenario and your corrected trigger code, explaining how you fixed the error.<br><br><em><strong>Hint:</strong> Ask ChatGPT for a buggy trigger example and a test case that exposes the bug.</em>
+
+DELIMITER //
+CREATE TRIGGER expense_trigger
+AFTER INSERT ON Expenses
+FOR EACH ROW
+BEGIN
+    UPDATE Wallet
+    SET balance = balance + NEW.amount
+    WHERE user_id = NEW.user_id;
+END //
+DELIMITER ;
+
+INSERT INTO Wallet VALUES (101, 5000);
+INSERT INTO Expenses VALUES (1, 101, 1000);
+SELECT * FROM Wallet;
+
+DELIMITER //
+CREATE TRIGGER expense_trigger
+AFTER INSERT ON Expenses
+FOR EACH ROW
+BEGIN
+    UPDATE Wallet
+    SET balance = balance - NEW.amount
+    WHERE user_id = NEW.user_id;
+END //
+DELIMITER ;
